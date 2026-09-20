@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93df87d9233f70046bfb5d4d36dd6628, type: 3}
+  m_Name: Dummy
+  m_EditorClassIdentifier: Assembly-CSharp::MechData
+  id: 
+  displayName: 
+  maxSpeed: 6
+  acceleration: 40
+  deceleration: 50
+  dashSpeed: 18
+  dashTime: 0.15
+  dashCooldown: 1
+  boostSpeed: 14
+  boostTurnRate: 100
+  maxEnergy: 100
+  energyRegen: 10
+  dashEnergyCost: 20
+  boostEnergyPerSec: 15
+  maxHP: 100
+  maxShield: 50
+  shieldRegen: 5
+  damageMultiplier: 1
+  critChance: 0.1
+  critDamage: 1.5
+  resistKinetic: 0
+  resistCap: 0.8
