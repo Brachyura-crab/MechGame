@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d83c5b7953a7644aa22745783d899bd, type: 3}
+  m_Name: Status_ShieldOff
+  m_EditorClassIdentifier: Assembly-CSharp::StatusData
+  id: shield_off
+  displayName: Shield Off
+  icon: {fileID: 1399725893816511699, guid: b669dca9d9fef35499fdb999bcf8c167, type: 3}
+  duration: 5
+  stackRule: 0
+  maxStacks: 1
+  affectedByControlResist: 1
+  blocks: 8
+  modifiers: []

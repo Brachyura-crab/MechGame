@@ -7,12 +7,18 @@ public class CameraTargetController : MonoBehaviour
     [SerializeField] Rigidbody2D playerRb;
     [SerializeField] InputActionReference aimAction;
     [SerializeField] InputActionReference attackAction;
-        [SerializeField] InputActionReference attack2Action;
+    [SerializeField] InputActionReference attack2Action;
+    [SerializeField] MechAim playerAim;
+    [SerializeField] WeaponArbiter arbiter;    // ว่างไว้ = ใช้ aimLead / maxAimOffset ด้านล่างกับทุกอาวุธ
+    WeaponData lastWeapon;
+    [SerializeField] float aimHoldAfterShot = 0.35f;
     [SerializeField] float aimLead = 0.3f;        // สัดส่วนระยะเมาส์ที่กล้องเลื่อนไป (0-1)
     [SerializeField] float maxAimOffset = 4f;     // เลื่อนไปไกลสุดกี่หน่วย
     [SerializeField] float moveLeadTime = 0.4f;   // เท่ากับ Lookahead Time เดิม
     [SerializeField] float maxMoveOffset = 3f;
     [SerializeField] float followSpeed = 6f;      // ยิ่งต่ำ ยิ่งเปลี่ยนทิศนุ่ม
+
+    [SerializeField] CameraShake shake;
 
     Camera cam;
     Vector2 offset;
@@ -21,14 +27,21 @@ public class CameraTargetController : MonoBehaviour
 
     void LateUpdate()
     {
+        if (arbiter != null && arbiter.Active != null) lastWeapon = arbiter.Active.Data;
         Vector2 target;
-
-        if (attackAction.action.IsPressed() || attack2Action.action.IsPressed())
+        bool aiming = attackAction.action.IsPressed() || attack2Action.action.IsPressed()
+                      || Time.time - playerAim.LastShotTime < aimHoldAfterShot;
+        if (aiming)
         {
             Vector2 mouse = aimAction.action.ReadValue<Vector2>();
             Vector3 world = cam.ScreenToWorldPoint(new Vector3(mouse.x, mouse.y, -cam.transform.position.z));
-            Vector2 toMouse = (Vector2)world - (Vector2)player.position;
-            target = Vector2.ClampMagnitude(toMouse * aimLead, maxAimOffset);
+            float lead = lastWeapon != null ? lastWeapon.cameraAimLead : aimLead;
+            float maxOff = lastWeapon != null ? lastWeapon.cameraMaxOffset : maxAimOffset;
+            lead = Mathf.Clamp(lead, 0f, 0.95f);
+
+            // วัดระยะเมาส์จากกลางจอ (ไม่ใช่จากตัวหุ่น) ผลสุดท้ายกล้องเลื่อนไป lead ของระยะ ตัวหุ่น→เมาส์ เท่าเดิม
+            Vector2 fromCenter = (Vector2)world - (Vector2)cam.transform.position;
+            target = Vector2.ClampMagnitude(fromCenter * (lead / (1f - lead)), maxOff);
         }
         else
         {
@@ -36,6 +49,7 @@ public class CameraTargetController : MonoBehaviour
         }
 
         offset = Vector2.Lerp(offset, target, followSpeed * Time.deltaTime);
-        transform.position = (Vector2)player.position + offset;
+        Vector2 shakeOffset = shake != null ? shake.CurrentOffset : Vector2.zero;
+        transform.position = (Vector2)player.position + offset + shakeOffset;
     }
 }

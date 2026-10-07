@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b84a29bd47ebc49a8406834b4e20b3, type: 3}
+  m_Name: Skill_MissileVolley
+  m_EditorClassIdentifier: Assembly-CSharp::MissileVolleySkill
+  id: missile_volley
+  displayName: Missile Volley
+  icon: {fileID: 0}
+  cooldown: 10
+  magazineSize: 2
+  ammoResource: {fileID: 11400000, guid: 9b03fe00ab79c2a43a50612799b9fdb7, type: 2}
+  missilePrefab: {fileID: 4435345474054999083, guid: 2a01899fddfd0fd4ba719bd3d43994bf, type: 3}
+  pairs: 6
+  pairInterval: 0.2
+  sideOffset: 0.3
+  launchAngle: 45
+  sideViewSpread: 8
+  smokePrefab: {fileID: 8502301735381992553, guid: d9fd414cbde61f447a89615487b550e2, type: 3}
+  smokeLifetime: 0.6
+  smokeScale: 1
+  smokeFollowsMech: 1
+  speed: 18
+  lifetime: 3
+  damage: 20
+  blastRadius: 2
+  turnRate: 360
+  homingDelay: 0.15
+  searchRadius: 30
+  fuseDistance: 0.2
+  stun: {fileID: 11400000, guid: d7f5bbb607c383b4294e2b41e70534d7, type: 2}
+  stunDuration: 1.5
+  knockbackSpeed: 5

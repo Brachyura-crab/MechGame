@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     MechStats mechStats;
     StatBlock S => mechStats.Stats;
     Energy energy;
+    StatusController status;
 
     float maxSpeed => S.Get(StatId.MaxSpeed);
     float acceleration => S.Get(StatId.Acceleration);
@@ -38,12 +39,18 @@ public class PlayerMove : MonoBehaviour
     bool dashPressed;
     float hitchEndTime;
 
+    public bool IsBoosting => state == State.Boost;
+    public bool IsDashing => state == State.Dash;   // เฉพาะช่วงพุ่ง (Hitch ก่อน Boost ไม่นับ)
+    public Vector2 DashDirection => dashDir;
+    public bool Frozen { get; set; }
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         facing = GetComponent<PlayerSpriteDirection>();
         mechStats = GetComponent<MechStats>();
         energy = GetComponent<Energy>();
+        status = GetComponent<StatusController>();
     }
 
     void OnEnable()
@@ -70,6 +77,21 @@ public class PlayerMove : MonoBehaviour
         bool pressed = dashPressed;
         dashPressed = false;
 
+        if (Frozen)
+        {
+            state = State.Normal;
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        // ถูก Stun/Root: ขัด Dash/Boost ทันที ไถลต่อแล้วเบรกด้วย deceleration ปกติ ไม่รับ input
+        if (status != null && !status.CanMove)
+        {
+            state = State.Normal;
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+            return;
+        }
+
         switch (state)
         {
             case State.Normal:
@@ -93,7 +115,8 @@ public class PlayerMove : MonoBehaviour
 
             case State.Hitch: // ชะงักสั้นๆ ก่อนพุ่ง Boost
                 rb.linearVelocity = Vector2.zero;
-                if (now >= hitchEndTime) StartBoost();
+                if (!dashAction.action.IsPressed()) state = State.Normal;  // ปล่อยปุ่มก่อน Boost เริ่ม = ยกเลิก
+                else if (now >= hitchEndTime) StartBoost();
                 break;
 
             case State.Boost:
@@ -131,8 +154,8 @@ public class PlayerMove : MonoBehaviour
 
     void UpdateBoost()
     {
-        // เลิกกดเดิน หรือ energy หมด = จบ Boost แล้วกลับไปเบรกนุ่มด้วย deceleration
-        if (moveInput.sqrMagnitude < 0.01f || !HasEnergy(0.01f))
+        // ปล่อย Space หรือ energy หมด = จบ Boost แล้วกลับไปเบรกนุ่มด้วย acceleration/deceleration ปกติ
+        if (!dashAction.action.IsPressed() || !HasEnergy(0.01f))
         {
             state = State.Normal;
             return;
@@ -140,8 +163,13 @@ public class PlayerMove : MonoBehaviour
 
         UseEnergy(boostEnergyPerSec * Time.fixedDeltaTime);
 
-        float target = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-        boostAngle = Mathf.MoveTowardsAngle(boostAngle, target, boostTurnRate * Time.fixedDeltaTime);
+        // ไม่ได้กดทิศ = พุ่งตรงต่อ, กดทิศ = ค่อยๆ เลี้ยวตาม
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            float target = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+            boostAngle = Mathf.MoveTowardsAngle(boostAngle, target, boostTurnRate * Time.fixedDeltaTime);
+        }
+
         float r = boostAngle * Mathf.Deg2Rad;
         rb.linearVelocity = new Vector2(Mathf.Cos(r), Mathf.Sin(r)) * boostSpeed;
     }

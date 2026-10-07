@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d83c5b7953a7644aa22745783d899bd, type: 3}
+  m_Name: Status_Ultimate
+  m_EditorClassIdentifier: Assembly-CSharp::StatusData
+  id: ultimate
+  displayName: Overdrive
+  icon: {fileID: 1399725893816511699, guid: b669dca9d9fef35499fdb999bcf8c167, type: 3}
+  duration: 15
+  stackRule: 0
+  maxStacks: 1
+  affectedByControlResist: 0
+  blocks: 0
+  modifiers:
+  - stat: 21
+    type: 2
+    value: 2
+  - stat: 22
+    type: 2
+    value: 5
+  - stat: 0
+    type: 1
+    value: 0.5
+  - stat: 1
+    type: 1
+    value: 0.5
+  - stat: 23
+    type: 0
+    value: 1
+  - stat: 5
+    type: 2
+    value: 0.2
+  - stat: 20
+    type: 1
+    value: 0.5
+  - stat: 3
+    type: 1
+    value: 0.2
+  - stat: 6
+    type: 1
+    value: 0.2
+  - stat: 9
+    type: 2
+    value: 2.5
+  - stat: 7
+    type: 0
+    value: 50

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9904e03ac28084e85ea69950dbdadf, type: 3}
+  m_Name: Green
+  m_EditorClassIdentifier: Assembly-CSharp::UiTheme
+  background: {r: 0.007843138, g: 0.03137255, b: 0.019607844, a: 1}
+  surface: {r: 0.039215688, g: 0.12156863, b: 0.07058824, a: 1}
+  inkDim: {r: 0.039215688, g: 0.22745098, b: 0.11764706, a: 1}
+  inkLow: {r: 0.101960786, g: 0.5411765, b: 0.2901961, a: 1}
+  inkMid: {r: 0.18431373, g: 0.83137256, b: 0.45490196, a: 1}
+  inkBright: {r: 0.41960785, g: 1, b: 0.6509804, a: 1}
+  onInk: {r: 0.007843138, g: 0.03137255, b: 0.019607844, a: 1}

@@ -1,0 +1,523 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1113a23232fdd4dad59c164ce8f7f8, type: 3}
+  m_Name: MechArmSet
+  m_EditorClassIdentifier: Assembly-CSharp::MechArmSet
+  directions:
+  - directionName: Down
+    torso: {fileID: 21300000, guid: e3ae478cf44aa4c41b1a3f54dffc1aec, type: 3}
+    leftElbowLocal: {x: 0.24117647, y: 0.22352941}
+    rightElbowLocal: {x: -0.24705882, y: 0.22352941}
+    torsoGlow: {fileID: 21300000, guid: a0c16e2157d189846b7201e872a80517, type: 3}
+    jetGlowSprite: {fileID: 0}
+    torsoGlowPoints:
+    - localPos: {x: -0.05882353, y: -0.45882353}
+    - localPos: {x: 0.052941177, y: -0.45882353}
+    - localPos: {x: -0.07647059, y: -0.37058824}
+    - localPos: {x: 0.064705886, y: -0.37058824}
+    - localPos: {x: -0.13529412, y: -0.011764706}
+    - localPos: {x: 0.12352941, y: -0.011764706}
+    - localPos: {x: -0.005882353, y: 0.32941177}
+    - localPos: {x: -0.1764706, y: 0.4117647}
+    - localPos: {x: 0.16470589, y: 0.4117647}
+    - localPos: {x: -0.1882353, y: 0.5411765}
+    - localPos: {x: 0.18235295, y: 0.5411765}
+    - localPos: {x: -0.005882353, y: 0.5470588}
+    - localPos: {x: -0.005882353, y: 0.62352943}
+    trailPoints:
+    - localPos: {x: -0.105882354, y: 0.17058824}
+    - localPos: {x: 0.0882353, y: 0.1764706}
+    - localPos: {x: -0.15882353, y: 0.39411765}
+    - localPos: {x: 0.14117648, y: 0.39411765}
+    leftArmInFront: 1
+    rightArmInFront: 1
+    jetGlowInFront: 0
+    launcherLeft: {fileID: 21300000, guid: 5b14af799f70c5f4c9e82be158799039, type: 3}
+    launcherRight: {fileID: 21300000, guid: ce2665e69cf1cf146b86a2bfaf119d04, type: 3}
+    launcherLeftPoints:
+    - localPos: {x: -0.2764706, y: 0.5176471}
+    - localPos: {x: -0.2882353, y: 0.4764706}
+    - localPos: {x: -0.3, y: 0.43529412}
+    launcherRightPoints:
+    - localPos: {x: 0.27058825, y: 0.5176471}
+    - localPos: {x: 0.28235295, y: 0.4764706}
+    - localPos: {x: 0.29411766, y: 0.43529412}
+    launcherLeftInFront: 0
+    launcherRightInFront: 0
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: f0e06dce2b2313941893ba259807310b, type: 3}
+        muzzleLocal: {x: 0.31764707, y: -0.65294117}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: c063243c2cbf70842a264ae17aeeb0ba, type: 3}
+        muzzleLocal: {x: -0.5176471, y: -0.9823529}
+        glowSprite: {fileID: 21300000, guid: 8f849f979d6efee44a6c543e47eebe65, type: 3}
+        glowPoints:
+        - localPos: {x: -0.4882353, y: -0.9882353}
+        - localPos: {x: -0.28235295, y: -0.64705884}
+        - localPos: {x: -0.24705882, y: -0.5764706}
+        - localPos: {x: -0.20588236, y: -0.5176471}
+        - localPos: {x: -0.16470589, y: -0.45882353}
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: 95fbb60508c26d94386879f2e0e40a24, type: 3}
+        muzzleLocal: {x: 0.37058824, y: -0.5117647}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 5853f2a24a80cd248a06fecc6fc3461a, type: 3}
+        muzzleLocal: {x: -0.21176471, y: -0.89411765}
+        glowSprite: {fileID: 21300000, guid: 46c3d569b0396064cb5df454b08f01bb, type: 3}
+        glowPoints:
+        - localPos: {x: -0.21176471, y: -0.86470586}
+        - localPos: {x: -0.12352941, y: -0.6117647}
+        - localPos: {x: -0.105882354, y: -0.5411765}
+        - localPos: {x: -0.0882353, y: -0.4764706}
+        - localPos: {x: -0.07647059, y: -0.4}
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: f4c9a68f3fce1ee489d7ddaefd186022, type: 3}
+        muzzleLocal: {x: 0.023529412, y: -0.58235294}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 8433b72b7430d204b977e4290e0fe5b5, type: 3}
+        muzzleLocal: {x: -0.052941177, y: -0.84117645}
+        glowSprite: {fileID: 21300000, guid: 774c3f0aed62a7541b47667af619d3fb, type: 3}
+        glowPoints:
+        - localPos: {x: -0.052941177, y: -0.8117647}
+  - directionName: DownLeft
+    torso: {fileID: 21300000, guid: 883b7f3483ea1ef40b76d11d635bcd68, type: 3}
+    leftElbowLocal: {x: 0.21764706, y: 0.15882353}
+    rightElbowLocal: {x: -0.12941177, y: 0.23529412}
+    torsoGlow: {fileID: 21300000, guid: 1cdc7f4c39c2a874e986dc87e8d1fb4a, type: 3}
+    jetGlowSprite: {fileID: 0}
+    torsoGlowPoints: []
+    trailPoints:
+    - localPos: {x: 0.023529412, y: 0.09411765}
+    - localPos: {x: 0.31176472, y: 0.09411765}
+    - localPos: {x: 0.011764706, y: 0.3647059}
+    - localPos: {x: 0.3, y: 0.3647059}
+    leftArmInFront: 1
+    rightArmInFront: 1
+    jetGlowInFront: 0
+    launcherLeft: {fileID: 21300000, guid: 83d019b3b76cd6b488197b6c3a0a2e9d, type: 3}
+    launcherRight: {fileID: 21300000, guid: 87af7b5e650f5f941b16f4be272f9288, type: 3}
+    launcherLeftPoints:
+    - localPos: {x: -0.13529412, y: 0.5588235}
+    - localPos: {x: -0.14705883, y: 0.5176471}
+    - localPos: {x: -0.15294118, y: 0.4764706}
+    launcherRightPoints:
+    - localPos: {x: 0.25882354, y: 0.5294118}
+    - localPos: {x: 0.24705882, y: 0.49411765}
+    - localPos: {x: 0.23529412, y: 0.45294118}
+    launcherLeftInFront: 0
+    launcherRightInFront: 1
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: b14aeecae9e6ed541a4fc0b1b8de0fcd, type: 3}
+        muzzleLocal: {x: -0.04117647, y: -0.57058823}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: be803fe146fa3074abb615691d2ed1e2, type: 3}
+        muzzleLocal: {x: -0.47058824, y: -0.9470588}
+        glowSprite: {fileID: 21300000, guid: ad6309d9ceb03924c83b123c064a406f, type: 3}
+        glowPoints: []
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: 22470312168d8f246ab5b7120f3ca005, type: 3}
+        muzzleLocal: {x: -0.23529412, y: -0.5764706}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 5de3e8ebaf59e8a45b7fc8f9965a30e3, type: 3}
+        muzzleLocal: {x: -0.67058825, y: -0.8235294}
+        glowSprite: {fileID: 21300000, guid: 4a397662afc15b540be4378c4c30046b, type: 3}
+        glowPoints: []
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: d800b629f87a7054bb451607346abb33, type: 3}
+        muzzleLocal: {x: -0.48235294, y: -0.32941177}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 0e514964780c4c44ca361a5dcb043817, type: 3}
+        muzzleLocal: {x: -0.7882353, y: -0.7176471}
+        glowSprite: {fileID: 21300000, guid: c03245d1f8c40e34b86ffecc350e31d1, type: 3}
+        glowPoints: []
+  - directionName: DownRight
+    torso: {fileID: 21300000, guid: 12b781e5f2fbff4439db9ff8dc95d497, type: 3}
+    leftElbowLocal: {x: 0.12941177, y: 0.23529412}
+    rightElbowLocal: {x: -0.21764706, y: 0.15882353}
+    torsoGlow: {fileID: 21300000, guid: b459c0bfb6c86544ea4a63ec30129bbe, type: 3}
+    jetGlowSprite: {fileID: 0}
+    torsoGlowPoints: []
+    trailPoints:
+    - localPos: {x: -0.31764707, y: 0.0882353}
+    - localPos: {x: -0.04117647, y: 0.0882353}
+    - localPos: {x: -0.30588236, y: 0.35882354}
+    - localPos: {x: -0.029411765, y: 0.35882354}
+    leftArmInFront: 1
+    rightArmInFront: 1
+    jetGlowInFront: 0
+    launcherLeft: {fileID: 21300000, guid: 951f2aaaf9599984ca0b988892969adc, type: 3}
+    launcherRight: {fileID: 21300000, guid: a07907492f1329b48a9361d304bfa4c4, type: 3}
+    launcherLeftPoints:
+    - localPos: {x: -0.25882354, y: 0.5294118}
+    - localPos: {x: -0.24705882, y: 0.49411765}
+    - localPos: {x: -0.23529412, y: 0.45294118}
+    launcherRightPoints:
+    - localPos: {x: 0.13529412, y: 0.5588235}
+    - localPos: {x: 0.14705883, y: 0.5176471}
+    - localPos: {x: 0.15294118, y: 0.4764706}
+    launcherLeftInFront: 0
+    launcherRightInFront: 1
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: 7febbed0242f84d4ca214e8a7232ad6e, type: 3}
+        muzzleLocal: {x: 0.32941177, y: -0.5882353}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: f116b6eb640a0d74db3dd726e9fc8553, type: 3}
+        muzzleLocal: {x: 0.052941177, y: -0.90588236}
+        glowSprite: {fileID: 21300000, guid: 2ee41c7d0ef667e43b6f549192ee0762, type: 3}
+        glowPoints: []
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: 6b64a971d9e7c124ab84673a19d58f2d, type: 3}
+        muzzleLocal: {x: 0.41764706, y: -0.5352941}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: d02b3a110d7d16a48800b721bb5ba816, type: 3}
+        muzzleLocal: {x: 0.32941177, y: -0.9705882}
+        glowSprite: {fileID: 21300000, guid: 77868d8e1c6b44149b5eb66c694daf42, type: 3}
+        glowPoints: []
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: 2e2b4695dac94384ba5107b89c387168, type: 3}
+        muzzleLocal: {x: 0.44117647, y: -0.5294118}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 1d37019b00dc32b4396b18d2d5776107, type: 3}
+        muzzleLocal: {x: 0.45882353, y: -0.9235294}
+        glowSprite: {fileID: 21300000, guid: 2798dbfdae971a34e813b401f2d3b51a, type: 3}
+        glowPoints: []
+  - directionName: Left
+    torso: {fileID: 21300000, guid: e18400d377f83da4897897b3e5425b26, type: 3}
+    leftElbowLocal: {x: 0.09411765, y: 0.16470589}
+    rightElbowLocal: {x: 0.09411765, y: 0.16470589}
+    torsoGlow: {fileID: 21300000, guid: a8a3bfcbb81e0764595c5ccb9734d6e8, type: 3}
+    jetGlowSprite: {fileID: 21300000, guid: 175be662810f14746959d6a9376314d6, type: 3}
+    torsoGlowPoints: []
+    trailPoints:
+    - localPos: {x: 0.3, y: 0.05882353}
+    - localPos: {x: 0.28235295, y: 0.31764707}
+    leftArmInFront: 1
+    rightArmInFront: 0
+    jetGlowInFront: 1
+    launcherLeft: {fileID: 21300000, guid: 476f978f22c709341bd37bd8b065ee6b, type: 3}
+    launcherRight: {fileID: 0}
+    launcherLeftPoints:
+    - localPos: {x: 0.13529412, y: 0.5235294}
+    - localPos: {x: 0.12352941, y: 0.48235294}
+    - localPos: {x: 0.11176471, y: 0.44117647}
+    launcherRightPoints:
+    - localPos: {x: 0.13529412, y: 0.5235294}
+    - localPos: {x: 0.12352941, y: 0.48235294}
+    - localPos: {x: 0.11176471, y: 0.44117647}
+    launcherLeftInFront: 1
+    launcherRightInFront: 0
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: 748a2b038af598d49a2f6bf17d0df603, type: 3}
+        muzzleLocal: {x: -0.44705883, y: -0.65294117}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: a253eee19b2b068499f29c4048cd5834, type: 3}
+        muzzleLocal: {x: -0.5, y: -1}
+        glowSprite: {fileID: 21300000, guid: 356e98ff414dfb348b89eefff2059b65, type: 3}
+        glowPoints: []
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: 70ffe29ee083a3842bf63f230b6e47e0, type: 3}
+        muzzleLocal: {x: -0.6647059, y: -0.42352942}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 36ae49d86146b03449a4ba779078f9e3, type: 3}
+        muzzleLocal: {x: -0.85882354, y: -0.7235294}
+        glowSprite: {fileID: 21300000, guid: 09627114fcf7e3e46bf3a42b8757a49e, type: 3}
+        glowPoints: []
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: f3e6986d9b807c043928c67f8e7966f4, type: 3}
+        muzzleLocal: {x: -0.7941176, y: 0.05882353}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: eec4a6a85a718e04192725b432384a8e, type: 3}
+        muzzleLocal: {x: -1.1294118, y: -0.07058824}
+        glowSprite: {fileID: 21300000, guid: 12d10e8c9781f4240ac8b1f0a24ea688, type: 3}
+        glowPoints: []
+  - directionName: Right
+    torso: {fileID: 21300000, guid: 6e1e0a8c8b2a7144c81a4d0223dc67b1, type: 3}
+    leftElbowLocal: {x: -0.0882353, y: 0.16470589}
+    rightElbowLocal: {x: -0.0882353, y: 0.16470589}
+    torsoGlow: {fileID: 21300000, guid: 7be6ab3c13d70e443b0831af0865467f, type: 3}
+    jetGlowSprite: {fileID: 21300000, guid: 8ce955fa58ddb0349a555eee475dede1, type: 3}
+    torsoGlowPoints: []
+    trailPoints:
+    - localPos: {x: -0.29411766, y: 0.052941177}
+    - localPos: {x: -0.28235295, y: 0.31764707}
+    leftArmInFront: 0
+    rightArmInFront: 1
+    jetGlowInFront: 1
+    launcherLeft: {fileID: 0}
+    launcherRight: {fileID: 21300000, guid: c24eff2ca9afcd74ebf0cb2ba141846c, type: 3}
+    launcherLeftPoints:
+    - localPos: {x: -0.12941177, y: 0.5235294}
+    - localPos: {x: -0.11764706, y: 0.48235294}
+    - localPos: {x: -0.105882354, y: 0.44117647}
+    launcherRightPoints:
+    - localPos: {x: -0.12941177, y: 0.5235294}
+    - localPos: {x: -0.11764706, y: 0.48235294}
+    - localPos: {x: -0.105882354, y: 0.44117647}
+    launcherLeftInFront: 0
+    launcherRightInFront: 1
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: a01775cdc5dae294c9eb23fec187661f, type: 3}
+        muzzleLocal: {x: 0.43529412, y: -0.64705884}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: ed4a9158faff534408fd9a21968ed814, type: 3}
+        muzzleLocal: {x: 0.4882353, y: -1}
+        glowSprite: {fileID: 21300000, guid: fdc8126b1c1d42a4caf8aa0b6c06b562, type: 3}
+        glowPoints: []
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: 8fbd860c48fac774baa5471037214a9c, type: 3}
+        muzzleLocal: {x: 0.6882353, y: -0.3647059}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 272c4f409e147ce4284b3bd081b0abae, type: 3}
+        muzzleLocal: {x: 0.90882355, y: -0.65}
+        glowSprite: {fileID: 21300000, guid: f2cb690d8d3adf048a01a993fc4f4833, type: 3}
+        glowPoints: []
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: 01794768984cd6543b2c5c88291f499a, type: 3}
+        muzzleLocal: {x: 0.7823529, y: 0.047058824}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 72f94eb27bd4b0b44b85dbf419f3f3e4, type: 3}
+        muzzleLocal: {x: 1.117647, y: -0.08235294}
+        glowSprite: {fileID: 21300000, guid: f3f95c961cad2514b85e0ae4a562f319, type: 3}
+        glowPoints: []
+  - directionName: Up
+    torso: {fileID: 21300000, guid: 7d7861394226978478bc8aeef97f4da5, type: 3}
+    leftElbowLocal: {x: -0.25882354, y: 0.17058824}
+    rightElbowLocal: {x: 0.2529412, y: 0.17058824}
+    torsoGlow: {fileID: 21300000, guid: c6f14db8cbc83114fb8736d319af24fa, type: 3}
+    jetGlowSprite: {fileID: 21300000, guid: 44782cddd21cfb84397d4d9d0c2d304f, type: 3}
+    torsoGlowPoints: []
+    trailPoints:
+    - localPos: {x: -0.105882354, y: 0.11764706}
+    - localPos: {x: 0.0882353, y: 0.12352941}
+    - localPos: {x: -0.15882353, y: 0.34117648}
+    - localPos: {x: 0.14117648, y: 0.34117648}
+    leftArmInFront: 0
+    rightArmInFront: 0
+    jetGlowInFront: 1
+    launcherLeft: {fileID: 21300000, guid: d3df693164c4a5c4bb5dcb0615ad96a4, type: 3}
+    launcherRight: {fileID: 21300000, guid: 1ee050626055d8140bb5abed93e31d07, type: 3}
+    launcherLeftPoints:
+    - localPos: {x: -0.2764706, y: 0.46470588}
+    - localPos: {x: -0.2882353, y: 0.42352942}
+    - localPos: {x: -0.3, y: 0.38235295}
+    launcherRightPoints:
+    - localPos: {x: 0.27058825, y: 0.46470588}
+    - localPos: {x: 0.28235295, y: 0.42352942}
+    - localPos: {x: 0.29411766, y: 0.38235295}
+    launcherLeftInFront: 1
+    launcherRightInFront: 1
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: f384c0cd26449c44fb717d2df978678a, type: 3}
+        muzzleLocal: {x: -0.33529413, y: -0.5647059}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: efb8cb2845bc7b549b22badaebcff4ec, type: 3}
+        muzzleLocal: {x: 0.5294118, y: -0.9588235}
+        glowSprite: {fileID: 21300000, guid: bea85477f70026547a19d3d1dc8bfa10, type: 3}
+        glowPoints: []
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: b3aa8c3ff3c2f8a41aed8f397236da12, type: 3}
+        muzzleLocal: {x: -0.2, y: 0.29411766}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 25610a8c042b0c140b368675d8b9dafb, type: 3}
+        muzzleLocal: {x: 0.3529412, y: 0.14117648}
+        glowSprite: {fileID: 21300000, guid: 6a482c11b5ebc3d45a196153afaaf803, type: 3}
+        glowPoints: []
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: e79f2e78527a2274e979496837834709, type: 3}
+        muzzleLocal: {x: -0.04117647, y: 0.58235294}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 9b8b6fa5cd190554983106d54228f2a8, type: 3}
+        muzzleLocal: {x: 0.03529412, y: 0.9}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+  - directionName: UpRight
+    torso: {fileID: 21300000, guid: 2c0a17390796dbb4eb59261c9de036ff, type: 3}
+    leftElbowLocal: {x: -0.18235295, y: 0.1764706}
+    rightElbowLocal: {x: 0.14705883, y: 0.15882353}
+    torsoGlow: {fileID: 21300000, guid: 039b2804323e6f24ba763805a2c3ced8, type: 3}
+    jetGlowSprite: {fileID: 21300000, guid: ed9f70de090aa0348ac08b3d659b7af7, type: 3}
+    torsoGlowPoints: []
+    trailPoints:
+    - localPos: {x: -0.2882353, y: 0.052941177}
+    - localPos: {x: -0.12352941, y: 0.05882353}
+    - localPos: {x: -0.2764706, y: 0.3}
+    - localPos: {x: -0.07647059, y: 0.30588236}
+    leftArmInFront: 0
+    rightArmInFront: 0
+    jetGlowInFront: 1
+    launcherLeft: {fileID: 21300000, guid: ac818cd2f30aebc48a48fbb856f151af, type: 3}
+    launcherRight: {fileID: 21300000, guid: 2a18d4d0972e02444b3313701c1d3fe6, type: 3}
+    launcherLeftPoints:
+    - localPos: {x: -0.2647059, y: 0.46470588}
+    - localPos: {x: -0.2529412, y: 0.42352942}
+    - localPos: {x: -0.24117647, y: 0.38235295}
+    launcherRightPoints:
+    - localPos: {x: 0.07058824, y: 0.44117647}
+    - localPos: {x: 0.08235294, y: 0.4}
+    - localPos: {x: 0.09411765, y: 0.35882354}
+    launcherLeftInFront: 0
+    launcherRightInFront: 1
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: bcf8a55497290e74793943eb738e27bc, type: 3}
+        muzzleLocal: {x: 0.3882353, y: -0.5058824}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 20fd7bdc762349642b373402e870b287, type: 3}
+        muzzleLocal: {x: 0.65882355, y: -0.84705883}
+        glowSprite: {fileID: 21300000, guid: df778b6609707ed458b541133b65ece2, type: 3}
+        glowPoints: []
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: 063ae9b3050b3da48b986ce81402c820, type: 3}
+        muzzleLocal: {x: 0.63529414, y: 0.052941177}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: cbe2b3ecb00dfee409bc3a5c381513e1, type: 3}
+        muzzleLocal: {x: 0.92941177, y: -0.105882354}
+        glowSprite: {fileID: 21300000, guid: bd700886882b8524a867b730bd051526, type: 3}
+        glowPoints: []
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: d1a0f13d34d96de41ae9b91d5976f586, type: 3}
+        muzzleLocal: {x: 0.45882353, y: 0.44117647}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 228f763a3038dd84e870fe32b02dd784, type: 3}
+        muzzleLocal: {x: 0.7882353, y: 0.57058823}
+        glowSprite: {fileID: 21300000, guid: 99e1eaceae992e34d8b46bcbb75f83be, type: 3}
+        glowPoints: []
+  - directionName: UpLeft
+    torso: {fileID: 21300000, guid: 4ea4a5ace7dd04444b92e57fcfe94acf, type: 3}
+    leftElbowLocal: {x: -0.13529412, y: 0.15882353}
+    rightElbowLocal: {x: 0.19411765, y: 0.1764706}
+    torsoGlow: {fileID: 21300000, guid: 333d2d457c79c1f4b976a2efe773bd14, type: 3}
+    jetGlowSprite: {fileID: 21300000, guid: 55f6dc7362f277a48ad9c26bebb4ca81, type: 3}
+    torsoGlowPoints: []
+    trailPoints:
+    - localPos: {x: 0.11764706, y: 0.064705886}
+    - localPos: {x: 0.2882353, y: 0.064705886}
+    - localPos: {x: 0.2764706, y: 0.30588236}
+    - localPos: {x: 0.07058824, y: 0.31764707}
+    leftArmInFront: 0
+    rightArmInFront: 0
+    jetGlowInFront: 1
+    launcherLeft: {fileID: 21300000, guid: 10b8e8751d3413a43b0b100011b02d86, type: 3}
+    launcherRight: {fileID: 21300000, guid: 857877577c437284da5f2dee9c481985, type: 3}
+    launcherLeftPoints:
+    - localPos: {x: -0.07647059, y: 0.44117647}
+    - localPos: {x: -0.0882353, y: 0.4}
+    - localPos: {x: -0.1, y: 0.35882354}
+    launcherRightPoints:
+    - localPos: {x: 0.25882354, y: 0.46470588}
+    - localPos: {x: 0.24705882, y: 0.42352942}
+    - localPos: {x: 0.23529412, y: 0.38235295}
+    launcherLeftInFront: 1
+    launcherRightInFront: 0
+    poses:
+    - pose: 0
+      left:
+        sprite: {fileID: 21300000, guid: 18c1abc4b6699b64eb04fae1d1ca480c, type: 3}
+        muzzleLocal: {x: -0.4117647, y: -0.5}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: bc0f6d1aebc7f7e45a0d445176bd8007, type: 3}
+        muzzleLocal: {x: -0.6882353, y: -0.85882354}
+        glowSprite: {fileID: 21300000, guid: 9f04039199b81a34b94dd3ce236446d4, type: 3}
+        glowPoints: []
+    - pose: 1
+      left:
+        sprite: {fileID: 21300000, guid: 2030b03603ddbfc4085c566747da9e09, type: 3}
+        muzzleLocal: {x: -0.61764705, y: 0.08235294}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 3997cdb149da9b64aa03694f5e6f2d51, type: 3}
+        muzzleLocal: {x: -0.9588235, y: -0.09411765}
+        glowSprite: {fileID: 21300000, guid: 5a242bda8002cdb4da3c5927dfe305bf, type: 3}
+        glowPoints: []
+    - pose: 2
+      left:
+        sprite: {fileID: 21300000, guid: 73bec007b22f7da4bb5a39304bf1873f, type: 3}
+        muzzleLocal: {x: -0.3529412, y: 0.42941177}
+        glowSprite: {fileID: 0}
+        glowPoints: []
+      right:
+        sprite: {fileID: 21300000, guid: 095ffbceb22298a44abf36501afca492, type: 3}
+        muzzleLocal: {x: -0.80588233, y: 0.5882353}
+        glowSprite: {fileID: 21300000, guid: cdedbc0082c5d50449a46a3fca458292, type: 3}
+        glowPoints: []

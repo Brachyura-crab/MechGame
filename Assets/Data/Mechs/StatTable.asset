@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1dc9a3c16532a44884e4bdc7cb270a, type: 3}
+  m_Name: StatTable
+  m_EditorClassIdentifier: Assembly-CSharp::StatDisplayTable
+  entries:
+  - stat: 12
+    label: MAX HP
+    group: DEFENSE
+    format: 0
+    visible: 1
+  - stat: 13
+    label: MAX SHIELD
+    group: DEFENSE
+    format: 0
+    visible: 1
+  - stat: 14
+    label: SHIELD REGEN
+    group: DEFENSE
+    format: 4
+    visible: 1
+  - stat: 18
+    label: KINETIC RESIST
+    group: DEFENSE
+    format: 1
+    visible: 1
+  - stat: 19
+    label: RESIST CAP
+    group: DEFENSE
+    format: 1
+    visible: 0
+  - stat: 8
+    label: MAX ENERGY
+    group: ENERGY
+    format: 0
+    visible: 1
+  - stat: 9
+    label: ENERGY REGEN
+    group: ENERGY
+    format: 4
+    visible: 1
+  - stat: 10
+    label: DASH COST
+    group: ENERGY
+    format: 0
+    visible: 1
+  - stat: 11
+    label: BOOST COST
+    group: ENERGY
+    format: 4
+    visible: 1
+  - stat: 0
+    label: MAX SPEED
+    group: MOBILITY
+    format: 0
+    visible: 1
+  - stat: 1
+    label: ACCELERATION
+    group: MOBILITY
+    format: 0
+    visible: 1
+  - stat: 2
+    label: DECELERATION
+    group: MOBILITY
+    format: 0
+    visible: 0
+  - stat: 3
+    label: DASH SPEED
+    group: MOBILITY
+    format: 0
+    visible: 1
+  - stat: 4
+    label: DASH TIME
+    group: MOBILITY
+    format: 3
+    visible: 0
+  - stat: 5
+    label: DASH COOLDOWN
+    group: MOBILITY
+    format: 3
+    visible: 1
+  - stat: 6
+    label: BOOST SPEED
+    group: MOBILITY
+    format: 0
+    visible: 1
+  - stat: 7
+    label: BOOST TURN
+    group: MOBILITY
+    format: 0
+    visible: 1
+  - stat: 15
+    label: DAMAGE
+    group: OFFENSE
+    format: 2
+    visible: 1
+  - stat: 16
+    label: CRIT CHANCE
+    group: OFFENSE
+    format: 1
+    visible: 1
+  - stat: 17
+    label: CRIT DAMAGE
+    group: OFFENSE
+    format: 2
+    visible: 1
+  - stat: 20
+    label: FIRE RATE
+    group: OFFENSE
+    format: 2
+    visible: 1
+  - stat: 21
+    label: RELOAD SPEED
+    group: OFFENSE
+    format: 2
+    visible: 1
+  - stat: 22
+    label: COOLDOWN RATE
+    group: OFFENSE
+    format: 2
+    visible: 1
