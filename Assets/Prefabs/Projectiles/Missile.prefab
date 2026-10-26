@@ -234,7 +234,7 @@ MonoBehaviour:
   radius: 0.1
   hitMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   explosionPrefab: {fileID: 8680058333529095156, guid: f924c6e59490ae4448c4119d7bef0e34, type: 3}
   explosionLifetime: 1
   explosionVisualScale: 0.5

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04eb5ca3e0e6b3846bbc7332922b91fa, type: 3}
+  m_Name: Mech Catalog
+  m_EditorClassIdentifier: Assembly-CSharp::MechCatalog
+  mechs:
+  - id: Mech_01
+    data: {fileID: 11400000, guid: 10464fdf3f150064da7c61d754a6192e, type: 2}
+    playerPrefab: {fileID: 4232107752737979201, guid: 488a07c8fdb1ce441b10f70151c7eedf, type: 3}
+    description: 
+    unlockedByDefault: 1
+    unlockedByMissionId: 
+    barArmor: 0.5
+    barSpeed: 0.5
+    barPower: 0.5
+    loadoutNames:
+    - Rifle
+    - PlasmaGun
+    - MissileVolley
+    - LightningBomb

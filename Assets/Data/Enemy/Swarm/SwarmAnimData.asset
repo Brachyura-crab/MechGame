@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4742c98c88cb8284daa75c6422eea90a, type: 3}
+  m_Name: SwarmAnimData
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyV2.SwarmAnimData
+  body:
+  - {fileID: 21300000, guid: 8988ee19d223c704491729194c476e87, type: 3}
+  - {fileID: 21300000, guid: 67eb14f533b6a6340b07de66df3a9ae1, type: 3}
+  - {fileID: 21300000, guid: 5a3eedded9984ef49a5f9cdea9ffd22a, type: 3}
+  - {fileID: 21300000, guid: c0e17276f196586498451b6442ea2002, type: 3}
+  - {fileID: 21300000, guid: b61cf5db20c56ef4b93a4fbababe703f, type: 3}
+  - {fileID: 21300000, guid: 57a883e53eba18d419e7eb9e2cd2631e, type: 3}
+  - {fileID: 21300000, guid: fb23412bdce796b4881ff4c6b0006004, type: 3}
+  - {fileID: 21300000, guid: eddc239ca50e12e43af507e3bb7c996a, type: 3}
+  - {fileID: 21300000, guid: 51a5f9d02dc79a849aa936987bcef071, type: 3}
+  glow:
+  - {fileID: 21300000, guid: c28428bd7335cbc44bdb0c6d56d6ab12, type: 3}
+  - {fileID: 21300000, guid: 279eb21d9a0151646a76a4a0eb7471fe, type: 3}
+  - {fileID: 21300000, guid: 861155dfc6b1aba47b4b5fd0daeb99d8, type: 3}
+  - {fileID: 21300000, guid: f8e7246d94a028b4cbd5d52d961058a6, type: 3}
+  - {fileID: 21300000, guid: 4cf309ecc1ec06840a2af6855428247b, type: 3}
+  - {fileID: 21300000, guid: 09702b3c47c724440b587394c03a45e7, type: 3}
+  - {fileID: 21300000, guid: e2517b4ff9b076a4799e0164466b63b1, type: 3}
+  - {fileID: 21300000, guid: cbce5abbcc3c38246a7b99752643a73d, type: 3}
+  - {fileID: 21300000, guid: e26d3080a38d0c1468702c1b72b079b2, type: 3}
+  effect:
+  - {fileID: 21300000, guid: 6b632468988c8114eb8b891535ea472c, type: 3}
+  - {fileID: 21300000, guid: a8da2918119ae1b4bb543ec4854c322e, type: 3}
+  - {fileID: 21300000, guid: 94db98952f4423f4082dec09de3c6790, type: 3}
+  - {fileID: 21300000, guid: c0cb6ad58199e114291a17371f46f603, type: 3}
+  - {fileID: 21300000, guid: 349098679f498a04982ed898241bff36, type: 3}
+  - {fileID: 21300000, guid: b43e3b984ce6afd40a9f11be3d954693, type: 3}
+  - {fileID: 21300000, guid: 466f92c523a90df429ccb112ca721fa1, type: 3}
+  - {fileID: 21300000, guid: 9ec79633aac3d0f4eb653789c60122bd, type: 3}
+  - {fileID: 21300000, guid: 427766e949cdc2e4fa00f04a03fbfc66, type: 3}
+  windupFrames: 3
+  strikeFps: 24
+  reverseFps: 24
+  holdAfterBoost: 0.3

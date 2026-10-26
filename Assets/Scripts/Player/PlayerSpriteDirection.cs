@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 class ArmPoseState
 {
@@ -43,8 +42,6 @@ class ArmPoseState
 [RequireComponent(typeof(MechAim))]
 public class PlayerSpriteDirection : MonoBehaviour
 {
-    [SerializeField] InputActionReference attackAction;
-    [SerializeField] InputActionReference attack2Action;
     [SerializeField] Sprite[] directionSprites = new Sprite[8];
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] float minSpeedToTurn = 0.1f;
@@ -54,7 +51,6 @@ public class PlayerSpriteDirection : MonoBehaviour
 
     [SerializeField] float turnSpd = 720f;
     [SerializeField] float minAimDistance = 0.5f;
-    [SerializeField] float aimHoldAfterShot = 0.35f;   // หันตามเมาส์ต่ออีกกี่วินาทีหลังยิงนัดล่าสุด
     float facingAngle = -90f;
 
     MechAim aim;
@@ -101,18 +97,6 @@ public class PlayerSpriteDirection : MonoBehaviour
         limbs = GetComponent<MechLimbs>();
     }
 
-    void OnEnable()
-    {
-        attackAction.action.Enable();
-        attack2Action.action.Enable();
-    }   
-
-    void OnDisable()
-    {
-        attackAction.action.Disable();
-        attack2Action.action.Disable();
-    }
-
     void Update()
     {
         Vector2 v = rb.linearVelocity;
@@ -122,8 +106,7 @@ public class PlayerSpriteDirection : MonoBehaviour
         
         bool hasTarget = false;
         float targetAngle = facingAngle;
-        bool aiming = ForcedAngle == null && (attackAction.action.IsPressed()
-                            || attack2Action.action.IsPressed() || Time.time - aim.LastShotTime < aimHoldAfterShot);
+        bool aiming = ForcedAngle == null && aim.IsAiming;
         if (aiming)
         {
             Vector2 toMouse = aim.AimPoint - (Vector2)transform.position;

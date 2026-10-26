@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0584e2659f28ed43a4995888b81c72e, type: 3}
+  m_Name: MissionData_Test
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyV2.MissionData
+  gateCount: 3
+  minDistance: 150
+  maxDistance: 220
+  minGateSpacing: 120
+  extractRadius: 15
+  extractHold: 5
+  warnRadius: 320
+  abandonCountdown: 10

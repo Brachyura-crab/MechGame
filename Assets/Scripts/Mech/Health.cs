@@ -7,12 +7,11 @@ public class Health : MonoBehaviour
     MechStats mech;
     float lastMax;
     [SerializeField] float shieldRegenDelay = 3f;
+    [SerializeField] float hpRegenDelay = 3f;   // วินาทีที่หยุดฟื้น HP หลังโดนตี (0 = ฟื้นต่อเนื่อง)
     float lastMaxShield;
     float lastDamageTime = -999f;
 
     StatusController status;
-    [SerializeField] ModuleData shieldModule;
-    ModuleSystem modules;
     bool ShieldBlocked => status != null && status.ShieldDisabled;
 
     public float Current { get; private set; }
@@ -39,7 +38,6 @@ public class Health : MonoBehaviour
         lastMaxShield = MaxShield;
         Shield = lastMaxShield;
         status = GetComponent<StatusController>();
-        modules = GetComponent<ModuleSystem>();
     }
 
     void Update()
@@ -61,11 +59,20 @@ public class Health : MonoBehaviour
             ShieldChanged?.Invoke(Shield, maxShield);
         }
 
-        float shieldEff = modules != null ? modules.Efficiency(shieldModule) : 1f;
-        if (!IsDead && !ShieldBlocked && shieldEff > 0f && Shield < maxShield && Time.time - lastDamageTime >= shieldRegenDelay)
+        // โมดูลโล่เสียจะลด ShieldRegen ผ่าน modifier อยู่แล้ว (0 = ไม่ฟื้น)
+        float regen = mech.Stats.Get(StatId.ShieldRegen);
+        if (!IsDead && !ShieldBlocked && regen > 0f && Shield < maxShield && Time.time - lastDamageTime >= shieldRegenDelay)
         {
-            Shield = Mathf.Min(maxShield, Shield + mech.Stats.Get(StatId.ShieldRegen) * shieldEff * Time.deltaTime);
+            Shield = Mathf.Min(maxShield, Shield + regen * Time.deltaTime);
             ShieldChanged?.Invoke(Shield, maxShield);
+        }
+
+        // ฟื้น HP ตามสเตต HPRegen (modifier จากโมดูล/บัฟปรับค่านี้ได้เหมือน ShieldRegen)
+        float hpRegen = mech.Stats.Get(StatId.HPRegen);
+        if (!IsDead && hpRegen > 0f && Current < max && Time.time - lastDamageTime >= hpRegenDelay)
+        {
+            Current = Mathf.Min(max, Current + hpRegen * Time.deltaTime);
+            Changed?.Invoke(Current, max);
         }
     }
 

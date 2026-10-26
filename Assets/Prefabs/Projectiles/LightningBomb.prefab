@@ -48,8 +48,10 @@ MonoBehaviour:
   radius: 0.2
   hitMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   explosionPrefab: {fileID: 8425631150520849845, guid: 34ef62ed9d3f247468d5628534b034e9, type: 3}
+  explosionLifetime: 0.5
+  explosionVisualScale: 1
 --- !u!1 &7440808669194504760
 GameObject:
   m_ObjectHideFlags: 0

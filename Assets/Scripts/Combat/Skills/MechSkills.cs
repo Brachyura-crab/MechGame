@@ -22,10 +22,12 @@ public class MechSkills : MonoBehaviour
     public MechAim Aim { get; private set; }
     StatusController status;
     ResourceInventory inventory;
-    public bool IsBlocked => !CanCast || (status != null && !status.CanCastSkills);
-    public bool CanCast { get; set; } = true;   // ไว้ให้สถานะ (Stun/Silence) ปิดการใช้สกิล
+    public bool IsBlocked => status != null && !status.CanCastSkills;
 
     public event Action<int> SkillCast;         // ส่งเลขช่องที่ใช้
+
+    public SkillData GetSkill(int index) =>
+    index >= 0 && index < slots.Length && slots[index] != null ? slots[index].skill : null;
 
     void Awake()
     {
@@ -45,6 +47,7 @@ public class MechSkills : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.InputBlocked) return;
         float rate = Mathf.Max(0.01f, Mech.Stats.Get(StatId.CooldownRate));
 
         // ลดคูลดาวน์ตามอัตราปัจจุบัน (อัลติ CooldownRate x10 จึงเร่งของที่กำลังนับอยู่ด้วย)
@@ -115,7 +118,7 @@ public class MechSkills : MonoBehaviour
 
     void OnGUI()
     {
-        if (!debugGui) return;
+        if (!debugGui || !DebugGate.Visible) return;
         for (int i = 0; i < slots.Length; i++)
         {
             Slot s = slots[i];
@@ -130,8 +133,7 @@ public class MechSkills : MonoBehaviour
                 if (s.loaded <= 0 && !HasReserve(s.skill)) state = "NO AMMO";
             }
 
-            GUI.Label(new Rect(debugGuiPos.x, debugGuiPos.y + i * 22f, 400f, 24f),
-                s.input.action.name + "  " + s.skill.displayName + "  " + state);
+            DebugOverlay.Label(s.input.action.name + "  " + s.skill.displayName + "  " + state);
         }
     }
 }

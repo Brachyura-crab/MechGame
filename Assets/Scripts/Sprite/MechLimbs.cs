@@ -58,6 +58,7 @@ public class MechLimbs : MonoBehaviour
     }
 
     public bool IsArmVisibleInFront(bool isRight) => isRight ? rightFrontCached : leftFrontCached;
+    public int TorsoSortingOrder => torsoRenderer != null ? torsoRenderer.sortingOrder : 0;
 
     public string CurrentDirectionName => current != null ? current.directionName : null;
 

@@ -12,13 +12,18 @@ public class ModuleSystem : MonoBehaviour
     [SerializeField] float chanceScale = 3f;           // โอกาส = (HP ที่เสียต่อโดน / MaxHP) x ค่านี้
     [SerializeField] float mediumHitFraction = 0.08f;  // เสีย HP เกินสัดส่วนนี้ = เสียระดับกลาง
     [SerializeField] float heavyHitFraction = 0.2f;    // เกินสัดส่วนนี้ = เสียระดับหนัก
-    [SerializeField] int maxDamagedModules = 2;        // เสียพร้อมกันได้สูงสุดกี่โมดูล
+
+        [Tooltip("แกน X = เลือดที่เหลือ (0-1), แกน Y = สัดส่วนของแต้มความเสียหายรวมที่เสียได้ (0 = ไม่เสียเลย, 1 = เสียหนักทุกตัว)")]
+    [SerializeField] AnimationCurve damagedLimitByHp = new AnimationCurve(
+        new Keyframe(0f, 1f), new Keyframe(0.3f, 0.7f), new Keyframe(0.7f, 0.2f), new Keyframe(1f, 0f));
+
     [SerializeField] float hitLockout = 0.75f;         // กันเสียซ้ำจากชุดกระสุนเดียวกัน
     [Header("ซ่อม")]
     [SerializeField] ResourceType repairKit;           // ว่าง = ซ่อมฟรี (ไว้ทดสอบ)
     [SerializeField] bool interruptOnHpDamage = true;  // ดาเมจถึง HP ระหว่างซ่อม = ยกเลิก (ไม่เสีย kit)
 
     ResourceInventory inventory;
+    MechStats mech;
     float repairElapsed, repairDuration;
 
     [Header("Debug")]
@@ -43,6 +48,8 @@ public class ModuleSystem : MonoBehaviour
         foreach (ModuleData m in modules)
             if (m != null) state[m] = ModuleDamage.None;
         inventory = GetComponent<ResourceInventory>();
+        mech = GetComponent<MechStats>();   // Health บังคับให้มี MechStats อยู่แล้ว
+        foreach (ModuleData m in modules) ApplyStatEffect(m);
     }
 
     void OnEnable() => health.Damaged += OnDamaged;
@@ -84,11 +91,38 @@ public class ModuleSystem : MonoBehaviour
         }
     }
 
+    // แต้มความเสียหายรวมตอนนี้ (Light=1, Medium=2, Heavy=3 รวมทุกโมดูล)
+    public int DamagePoints
+    {
+        get
+        {
+            int n = 0;
+            foreach (ModuleData m in modules)
+                if (m != null) n += (int)Tier(m);
+            return n;
+        }
+    }
+
+    // งบแต้มความเสียหายที่เสียได้ ณ ตอนนี้ ขึ้นกับเลือดที่เหลือ
+    public int DamageBudgetNow
+    {
+        get
+        {
+            int count = 0;
+            foreach (ModuleData m in modules)
+                if (m != null) count++;
+            float hpRatio = Mathf.Clamp01(health.Current / Mathf.Max(1f, health.Max));
+            float frac = Mathf.Clamp01(damagedLimitByHp.Evaluate(hpRatio));
+            return Mathf.RoundToInt(frac * count * (int)ModuleDamage.Heavy);
+        }
+    }
+
     void OnDamaged(DamageResult r)
     {
         if (Repairing != null && interruptOnHpDamage && r.hpDamage > 0f) CancelRepair();
         if (r.hpDamage <= 0f || health.IsDead) return;
         if (Time.time - lastRollTime < hitLockout) return;
+        if (DamagePoints >= DamageBudgetNow) return;   // งบเต็มแล้ว ไม่เสียเพิ่ม
 
         float frac = r.hpDamage / Mathf.Max(1f, health.Max);
         if (UnityEngine.Random.value >= Mathf.Clamp01(frac * chanceScale)) return;
@@ -100,30 +134,37 @@ public class ModuleSystem : MonoBehaviour
         ModuleDamage rolled = frac >= heavyHitFraction ? ModuleDamage.Heavy
                             : frac >= mediumHitFraction ? ModuleDamage.Medium
                             : ModuleDamage.Light;
-        Hit(target, rolled);
+        HitCapped(target, rolled, DamageBudgetNow - DamagePoints);
     }
 
     // สุ่มตามน้ำหนัก ถ้าเสียครบจำนวนสูงสุดแล้ว เลือกได้เฉพาะโมดูลที่เสียอยู่ (จะแย่ลง)
     ModuleData PickTarget()
     {
-        bool atLimit = DamagedCount >= maxDamagedModules;
         float total = 0f;
         foreach (ModuleData m in modules)
-            if (IsCandidate(m, atLimit)) total += m.hitWeight;
+            if (IsCandidate(m)) total += m.hitWeight;
         if (total <= 0f) return null;
 
         float roll = UnityEngine.Random.value * total;
         foreach (ModuleData m in modules)
         {
-            if (!IsCandidate(m, atLimit)) continue;
+            if (!IsCandidate(m)) continue;
             roll -= m.hitWeight;
             if (roll <= 0f) return m;
         }
         return null;
     }
 
-    bool IsCandidate(ModuleData m, bool atLimit) =>
-        m != null && Tier(m) < ModuleDamage.Heavy && (!atLimit || Tier(m) != ModuleDamage.None);
+    bool IsCandidate(ModuleData m) => m != null && Tier(m) < ModuleDamage.Heavy;
+
+    // เหมือน Hit แต่ไม่ให้เกินงบแต้มที่เหลือ
+    void HitCapped(ModuleData m, ModuleDamage rolled, int pointsLeft)
+    {
+        int cur = (int)Tier(m);
+        int next = cur >= (int)rolled ? cur + 1 : (int)rolled;
+        next = Mathf.Min(next, cur + pointsLeft, (int)ModuleDamage.Heavy);
+        SetTier(m, (ModuleDamage)next);
+    }
 
     // ทำให้เสียตามระดับ ถ้าเสียอยู่แล้วเท่ากันหรือหนักกว่า = แย่ลงอีกหนึ่งขั้น
     public void Hit(ModuleData m, ModuleDamage rolled)
@@ -137,8 +178,22 @@ public class ModuleSystem : MonoBehaviour
     {
         if (m == null || !state.ContainsKey(m) || state[m] == t) return;
         state[m] = t;
+        ApplyStatEffect(m);
         if (m == Repairing) CancelRepair();
         Changed?.Invoke(m, t);
+    }
+
+    // โมดูลที่ผูกกับ stat: ใส่ตัวคูณ (ประสิทธิภาพ) ลงใน StatBlock ปกติ = ไม่มีตัวคูณ
+    void ApplyStatEffect(ModuleData m)
+    {
+        if (m == null || !m.scalesStat || mech == null) return;
+
+        StatBlock s = mech.Stats;
+        s.RemoveModifiersFromSource(m);
+
+        float eff = m.Efficiency(Tier(m));
+        if (!Mathf.Approximately(eff, 1f))
+            s.AddModifier(new StatModifier(m.stat, ModType.More, eff, m));
     }
 
     public void Repair(ModuleData m, int steps = 1) =>
@@ -207,7 +262,7 @@ public class ModuleSystem : MonoBehaviour
             }
         }
 
-        if (!debugKeys || Keyboard.current == null) return;
+        if (!debugKeys || !DebugGate.Enabled || Keyboard.current == null) return;
         bool shift = Keyboard.current.leftShiftKey.isPressed;
         for (int i = 0; i < modules.Length && i < 9; i++)
         {
@@ -222,7 +277,7 @@ public class ModuleSystem : MonoBehaviour
 
     void OnGUI()
     {
-        if (!debugGui) return;
+        if (!debugGui || !DebugGate.Visible) return;
         for (int i = 0; i < modules.Length; i++)
         {
             ModuleData m = modules[i];
@@ -230,11 +285,9 @@ public class ModuleSystem : MonoBehaviour
             string extra = Tier(m) != ModuleDamage.None
                 ? "  cost " + RepairCost(m) + " / " + RepairTime(m).ToString("F1") + "s" : "";
             if (m == Repairing) extra += "  REPAIRING " + Mathf.RoundToInt(RepairProgress * 100f) + "%";
-            GUI.Label(new Rect(debugGuiPos.x, debugGuiPos.y + i * 22f, 550f, 24f),
-                (i + 1) + "  " + m.displayName + "  " + Tier(m) + "  eff " + Efficiency(m).ToString("F2") + extra + "  [" + (m.bodyPart != null ? m.bodyPart.displayName + ":" + PartTier(m.bodyPart) : "-") + "]");
+                DebugOverlay.Label((i + 1) + "  " + m.displayName + "  " + Tier(m) + "  eff " + Efficiency(m).ToString("F2") + extra + "  [" + (m.bodyPart != null ? m.bodyPart.displayName + ":" + PartTier(m.bodyPart) : "-") + "]");
         }
         if (repairKit != null && inventory != null)
-            GUI.Label(new Rect(debugGuiPos.x, debugGuiPos.y + modules.Length * 22f, 300f, 24f),
-                "Repair kits " + inventory.Get(repairKit));
+                DebugOverlay.Label("Repair kits " + inventory.Get(repairKit));
     }
 }

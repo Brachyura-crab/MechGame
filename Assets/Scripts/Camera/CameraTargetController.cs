@@ -1,17 +1,12 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CameraTargetController : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] Rigidbody2D playerRb;
-    [SerializeField] InputActionReference aimAction;
-    [SerializeField] InputActionReference attackAction;
-    [SerializeField] InputActionReference attack2Action;
     [SerializeField] MechAim playerAim;
     [SerializeField] WeaponArbiter arbiter;    // ว่างไว้ = ใช้ aimLead / maxAimOffset ด้านล่างกับทุกอาวุธ
     WeaponData lastWeapon;
-    [SerializeField] float aimHoldAfterShot = 0.35f;
     [SerializeField] float aimLead = 0.3f;        // สัดส่วนระยะเมาส์ที่กล้องเลื่อนไป (0-1)
     [SerializeField] float maxAimOffset = 4f;     // เลื่อนไปไกลสุดกี่หน่วย
     [SerializeField] float moveLeadTime = 0.4f;   // เท่ากับ Lookahead Time เดิม
@@ -29,12 +24,9 @@ public class CameraTargetController : MonoBehaviour
     {
         if (arbiter != null && arbiter.Active != null) lastWeapon = arbiter.Active.Data;
         Vector2 target;
-        bool aiming = attackAction.action.IsPressed() || attack2Action.action.IsPressed()
-                      || Time.time - playerAim.LastShotTime < aimHoldAfterShot;
-        if (aiming)
+        if (playerAim.IsAiming)
         {
-            Vector2 mouse = aimAction.action.ReadValue<Vector2>();
-            Vector3 world = cam.ScreenToWorldPoint(new Vector3(mouse.x, mouse.y, -cam.transform.position.z));
+            Vector2 world = playerAim.AimPoint;
             float lead = lastWeapon != null ? lastWeapon.cameraAimLead : aimLead;
             float maxOff = lastWeapon != null ? lastWeapon.cameraMaxOffset : maxAimOffset;
             lead = Mathf.Clamp(lead, 0f, 0.95f);

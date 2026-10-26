@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79dd003891b4caa498239a1ff9de3de9, type: 3}
+  m_Name: MapStyle
+  m_EditorClassIdentifier: Assembly-CSharp::MapStyle
+  diameter: 250
+  margin: 24
+  visibleRadius: 50
+  edgeMargin: 15
+  edgePad: 2
+  gridSpacing: 15
+  swarmSize: 3
+  leaderSize: 6
+  gateSize: 15
+  extractionSize: 15
+  playerSize: 15
+  swarmColor: {r: 1, g: 0, b: 0.10588288, a: 1}
+  leaderColor: {r: 1, g: 0, b: 0.10588236, a: 1}
+  gateColor: {r: 0.7172382, g: 0, b: 1, a: 1}
+  extractionColor: {r: 0.89433956, g: 0.89433956, b: 0.89433956, a: 1}
+  playerColor: {r: 0.64227414, g: 1, b: 0, a: 1}
+  lineThickness: 1
+  borderThickness: 1.5
+  bgColor: {r: 0, g: 0, b: 0, a: 1}
+  gridColor: {r: 0.5019608, g: 1, b: 0.84313726, a: 0.11764706}
+  borderColor: {r: 0.5019608, g: 1, b: 0.84313726, a: 0.19607843}
+  warnColor: {r: 1, g: 0, b: 0.17675686, a: 1}
+  fieldColor: {r: 1, g: 0, b: 0.97866154, a: 1}
+  activeColor: {r: 0, g: 0.21118128, b: 1, a: 1}
+  arrowMinSpeed: 0.5
+  pulseSpeed: 8

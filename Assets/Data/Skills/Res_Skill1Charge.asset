@@ -15,4 +15,4 @@ MonoBehaviour:
   id: Res_Skill1Charge
   displayName: Missile Volley
   icon: {fileID: 0}
-  maxAmount: 999
+  maxAmount: 111

@@ -15,7 +15,8 @@ MonoBehaviour:
   id: missile_volley
   displayName: Missile Volley
   icon: {fileID: 0}
-  cooldown: 10
+  description: 
+  cooldown: 14
   magazineSize: 2
   ammoResource: {fileID: 11400000, guid: 9b03fe00ab79c2a43a50612799b9fdb7, type: 2}
   missilePrefab: {fileID: 4435345474054999083, guid: 2a01899fddfd0fd4ba719bd3d43994bf, type: 3}
@@ -30,12 +31,12 @@ MonoBehaviour:
   smokeFollowsMech: 1
   speed: 18
   lifetime: 3
-  damage: 20
+  damage: 15
   blastRadius: 2
   turnRate: 360
   homingDelay: 0.15
   searchRadius: 30
   fuseDistance: 0.2
   stun: {fileID: 11400000, guid: d7f5bbb607c383b4294e2b41e70534d7, type: 2}
-  stunDuration: 1.5
+  stunDuration: 2
   knockbackSpeed: 5

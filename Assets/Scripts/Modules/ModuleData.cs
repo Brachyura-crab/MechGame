@@ -10,6 +10,9 @@ public class ModuleData : ScriptableObject
     public Sprite icon;
     [Min(0f)] public float hitWeight = 1f;   // น้ำหนักตอนสุ่มว่าโมดูลไหนโดน
     public BodyPartData bodyPart;   // โมดูลนี้อยู่ชิ้นส่วนไหน
+    [Header("คุม stat (ติ๊กเมื่อโมดูลนี้ควบคุม stat ของหุ่น เช่น โมดูลโล่ = ShieldRegen)")]
+    public bool scalesStat;
+    public StatId stat;   // stat จะถูกคูณด้วยประสิทธิภาพของโมดูล (เสียหนัก = 0)
 
     [Tooltip("ประสิทธิภาพ 0-1 ตามระดับ: None, Light, Medium, Heavy (0 = ใช้ไม่ได้)")]
     public float[] efficiency = { 1f, 0.6f, 0.3f, 0f };

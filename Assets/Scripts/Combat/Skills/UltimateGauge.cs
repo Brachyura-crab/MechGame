@@ -33,8 +33,11 @@ public class UltimateGauge : MonoBehaviour
     public float Max => max;
     public float Ratio => max > 0f ? Current / max : 0f;
     public bool IsFull => Current >= max;
-    public bool IsActive => Time.time < activeEnd;
-    public float ActiveRemaining => Mathf.Max(0f, activeEnd - Time.time);
+    // ดูจากสถานะที่ติดอยู่จริง (ถ้าไม่ได้ตั้ง ultimateStatus ใช้ตัวจับเวลาเดิมแทน)
+    bool HasStatus => status != null && ultimateStatus != null;
+    public bool IsActive => HasStatus ? status.Has(ultimateStatus) : Time.time < activeEnd;
+    public float ActiveRemaining => HasStatus ? status.RemainingOf(ultimateStatus) : Mathf.Max(0f, activeEnd - Time.time);
+    public float Duration => duration;
 
     public event Action<float, float> Changed;   // current, max
     public event Action Activated;
@@ -56,6 +59,7 @@ public class UltimateGauge : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.InputBlocked) return;
         AddCharge(passiveRate * Time.deltaTime);
 
         bool canCast = status == null || status.CanCastSkills;
@@ -110,11 +114,11 @@ public class UltimateGauge : MonoBehaviour
 
     void OnGUI()
     {
-        if (!debugGui) return;
+        if (!debugGui || !DebugGate.Visible) return;
 
         string s = IsActive
             ? "ULT ACTIVE  " + ActiveRemaining.ToString("F1") + "s"
             : IsFull ? "ULT READY  (R)" : "ULT  " + Mathf.FloorToInt(Ratio * 100f) + "%";
-        GUI.Label(new Rect(debugGuiPos.x, debugGuiPos.y, 400f, 24f), s);
+        DebugOverlay.Label(s);
     }
 }

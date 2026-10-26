@@ -36,12 +36,12 @@ public class ExplosionScreenFx : MonoBehaviour
     }
 
     // scale = ตัวคูณความแรงรวม (เผื่อสกิลอื่นใช้ร่วมกันและต้องการแรงต่างกัน)
-    public static void Trigger(Vector2 point, float blastRadius, float scale = 1f)
+    public static void Trigger(Vector2 point, float blastRadius, float scale = 1f, bool shake = true)
     {
-        if (Instance != null) Instance.Play(point, blastRadius, scale);
+        if (Instance != null) Instance.Play(point, blastRadius, scale, shake);
     }
 
-    void Play(Vector2 point, float blastRadius, float scale)
+        void Play(Vector2 point, float blastRadius, float scale, bool shake)
     {
         Camera cam = Camera.main;
         Vector2 viewer = cam != null ? (Vector2)cam.transform.position : point;
@@ -50,7 +50,7 @@ public class ExplosionScreenFx : MonoBehaviour
         float shakeK = shakeFalloff.Evaluate(Mathf.Clamp01(edgeDist / shakeMaxDistance));
         float dimK = dimFalloff.Evaluate(Mathf.Clamp01(edgeDist / dimMaxDistance));
 
-        if (shakeK > 0.001f && CameraShake.Instance != null)
+        if (shake && shakeK > 0.001f && CameraShake.Instance != null)
             CameraShake.Instance.Kick(shakeMaxAmplitude * shakeK * scale, shakeDuration);
 
         if (dimK > 0.001f && ScreenDimmer.Instance != null)

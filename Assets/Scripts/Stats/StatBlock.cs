@@ -64,6 +64,15 @@ public class StatBlock
     {
         for (int i = 0; i < values.Length; i++)
             values[i] = new StatValue();
+
+        // ค่าเริ่มต้นของ stat ที่เป็นตัวคูณ/เพดาน (profile จะเขียนทับด้วย SetBase ตามปกติ)
+        // กันกรณี profile ไม่ได้ตั้ง แล้วค่าเป็น 0 ทำให้ reload/cooldown/ดาเมจ หยุดทำงานเงียบๆ
+        SetBase(StatId.DamageMultiplier, 1f);
+        SetBase(StatId.FireRate, 1f);
+        SetBase(StatId.ReloadSpeed, 1f);
+        SetBase(StatId.CooldownRate, 1f);
+        SetBase(StatId.CritDamage, 1.5f);
+        SetBase(StatId.ResistCap, 0.8f);
     }
 
     public float Get(StatId id) => values[(int)id].Value;

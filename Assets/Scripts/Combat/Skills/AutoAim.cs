@@ -135,8 +135,11 @@ public class AutoAim : MonoBehaviour
         if (to.sqrMagnitude < 0.01f) return false;
 
         assistedShots++;
-        Debug.DrawLine(from, point, Color.cyan, 0.6f);   // เส้นที่ยิงไปหาจุดดัก
-        Debug.DrawLine(t, point, Color.yellow, 0.6f);    // ระยะที่ดักล่วงหน้าจากตำแหน่งเป้าจริง
+        if (DebugGate.Enabled)
+        {
+            Debug.DrawLine(from, point, Color.cyan, 0.6f);   // เส้นที่ยิงไปหาจุดดัก
+            Debug.DrawLine(t, point, Color.yellow, 0.6f);    // ระยะที่ดักล่วงหน้าจากตำแหน่งเป้าจริง
+        }
 
         dir = to.normalized;
         return true;
@@ -169,10 +172,11 @@ public class AutoAim : MonoBehaviour
         else return false;
         return true;
     }
-
+    
     void OnGUI()
     {
-        GUI.Label(new Rect(20f, 196f, 700f, 24f),
+        if (!DebugGate.Visible) return;
+        DebugOverlay.Label(
             "AutoAim stat=" + mech.Stats.Get(StatId.AimAssist)
             + " target=" + (target != null ? target.name : "none")
             + " vel=" + targetVel.ToString("F1")

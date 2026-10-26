@@ -144,7 +144,7 @@ MonoBehaviour:
   radius: 0.25
   hitMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   poolKey: {fileID: 0}
 --- !u!1 &8277457737641576046
 GameObject:

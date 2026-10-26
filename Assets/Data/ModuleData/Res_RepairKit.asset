@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 
   displayName: Repiar Kit
   icon: {fileID: 0}
-  maxAmount: 20
+  maxAmount: 9999

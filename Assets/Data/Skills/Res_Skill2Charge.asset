@@ -15,4 +15,4 @@ MonoBehaviour:
   id: Res_Skill2Charge
   displayName: Lightning Bomb
   icon: {fileID: 0}
-  maxAmount: 999
+  maxAmount: 111

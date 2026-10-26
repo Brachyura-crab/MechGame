@@ -41,6 +41,8 @@ public class PlayerMove : MonoBehaviour
 
     public bool IsBoosting => state == State.Boost;
     public bool IsDashing => state == State.Dash;   // เฉพาะช่วงพุ่ง (Hitch ก่อน Boost ไม่นับ)
+    public bool DashHeld => state != State.Normal;   // อยู่ในช่วง Dash / Hitch / Boost (ปุ่มยังทำงานอยู่)
+    public float DashCooldownRatio => dashCooldown > 0f ? Mathf.Clamp01((nextDashTime - Time.time) / dashCooldown) : 0f;
     public Vector2 DashDirection => dashDir;
     public bool Frozen { get; set; }
 
@@ -67,6 +69,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.InputBlocked) return;
         moveInput = moveAction.action.ReadValue<Vector2>();
         if (dashAction.action.WasPressedThisFrame()) dashPressed = true;
     }
@@ -84,8 +87,8 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
-        // ถูก Stun/Root: ขัด Dash/Boost ทันที ไถลต่อแล้วเบรกด้วย deceleration ปกติ ไม่รับ input
-        if (status != null && !status.CanMove)
+        // ถูก Stun/Root หรือถูกผลัก: ขัด Dash/Boost ทันที ไถลต่อแล้วเบรกด้วย deceleration ปกติ ไม่รับ input (Dash หนีแรงผลักไม่ได้)
+        if (status != null && (!status.CanMove || status.IsKnockedBack))
         {
             state = State.Normal;
             rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);

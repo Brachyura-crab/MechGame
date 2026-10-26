@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Mech/MechData")]
-public class MechData : ScriptableObject
+public class MechData : StatProfile
 {
     [Header("Info")]
     public string id;            // ID คงที่ ห้ามเปลี่ยนหลังตั้งแล้ว (ใช้ตอนเซฟในอนาคต)
@@ -28,8 +28,10 @@ public class MechData : ScriptableObject
 
     [Header("Survival")]
     public float maxHP = 100f;
-        public float maxShield = 50f;
+    public float maxShield = 50f;
     public float shieldRegen = 5f;
+    public float hpRegen = 1f;   // HP ที่ฟื้นต่อวินาที (0 = ไม่ฟื้น)
+    
 
     [Header("Combat")]
     public float damageMultiplier = 1f;
@@ -41,7 +43,7 @@ public class MechData : ScriptableObject
     public float reloadSpeed = 1f;   // ตัวคูณความเร็ว reload
     public float cooldownRate = 1f;   // ตัวคูณความเร็วคูลดาวน์สกิล (2 = คูลดาวน์เร็วขึ้นเท่าตัว)
 
-    public void ApplyTo(StatBlock s)
+    public override void ApplyTo(StatBlock s)
     {
         s.SetBase(StatId.MaxSpeed, maxSpeed);
         s.SetBase(StatId.Acceleration, acceleration);
@@ -58,6 +60,7 @@ public class MechData : ScriptableObject
         s.SetBase(StatId.MaxHP, maxHP);
         s.SetBase(StatId.MaxShield, maxShield);
         s.SetBase(StatId.ShieldRegen, shieldRegen);
+        s.SetBase(StatId.HPRegen, hpRegen);
         s.SetBase(StatId.DamageMultiplier, damageMultiplier);
         s.SetBase(StatId.CritChance, critChance);
         s.SetBase(StatId.CritDamage, critDamage);

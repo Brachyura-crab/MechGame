@@ -129,21 +129,17 @@ public class Missile : MonoBehaviour
         if (exploded) return;
         exploded = true;
 
-        int n = Physics2D.OverlapCircle(point, blastRadius, filter, overlapBuffer);
-        hitList.Clear();
+        AreaDamage.Collect(point, blastRadius, filter, hitList);
+        GameObject src = owner != null ? owner.gameObject : null;
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < hitList.Count; i++)
         {
-            Health h = overlapBuffer[i].GetComponentInParent<Health>();
-            if (h == null || h.IsDead || hitList.Contains(h)) continue;   // ศัตรูตัวเดียวอาจมีหลาย Collider
-            hitList.Add(h);
-
             DamageCalculator.Deal(new DamageInfo
             {
                 baseAmount = damage,
                 type = DamageType.Kinetic,
-                source = owner != null ? owner.gameObject : null
-            }, owner, h);
+                source = src
+            }, owner, hitList[i]);
         }
 
         // Stun + Knockback ทุกตัวที่โดน (ทิศผลัก = ออกจากจุดระเบิด)
@@ -158,27 +154,12 @@ public class Missile : MonoBehaviour
             Vector2 away = (Vector2)h.transform.position - point;
             if (away.sqrMagnitude < 0.0001f) away = Random.insideUnitCircle;   // ทับจุดระเบิดพอดี = สุ่มทิศ
 
-            if (stun != null) sc.Apply(stun, owner != null ? owner.gameObject : null, stunDuration);
+            if (stun != null) sc.Apply(stun, src, stunDuration);
             sc.Knockback(away, knockbackSpeed);
         }
 
-        if (explosionPrefab != null)
-        {
-            GameObject fx = Instantiate(explosionPrefab, point, Quaternion.identity);
-            fx.transform.localScale = Vector3.one * blastRadius * 2f * explosionVisualScale;
-            Destroy(fx, explosionLifetime);
-        }
-
+        AreaDamage.SpawnBlastFx(explosionPrefab, point, blastRadius, explosionVisualScale, explosionLifetime);
         ExplosionScreenFx.Trigger(point, blastRadius);
-
-        // แยก trail ออกให้จางเองตามเวลาของมัน ไม่หายวับพร้อม missile
-        // TrailRenderer trail = GetComponentInChildren<TrailRenderer>();
-        // if (trail != null && trail.gameObject != gameObject)
-        // {
-        //     trail.transform.SetParent(null, true);
-        //     trail.emitting = false;
-        //     Destroy(trail.gameObject, trail.time + 0.1f);
-        // }
 
         Destroy(gameObject);
     }

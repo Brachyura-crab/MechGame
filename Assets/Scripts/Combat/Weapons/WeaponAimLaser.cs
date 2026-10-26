@@ -12,9 +12,6 @@ public class WeaponAimLaser : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] float endFade = 0.15f;    // ความทึบปลายเส้นเทียบกับต้นเส้น
 
-    MechAim aim;
-    MechLimbs limbs;
-    AutoAim assist;
     ContactFilter2D filter;
     float heldTimer;
 
@@ -22,9 +19,6 @@ public class WeaponAimLaser : MonoBehaviour
 
     void Awake()
     {
-        aim = GetComponent<MechAim>();
-        limbs = GetComponent<MechLimbs>();
-        assist = GetComponent<AutoAim>();
 
         filter = new ContactFilter2D();
         filter.SetLayerMask(hitMask);
@@ -42,7 +36,7 @@ public class WeaponAimLaser : MonoBehaviour
 
     void LateUpdate()
     {
-        bool charging = weapon != null && weapon.isActiveAndEnabled && weapon.IsCharging;
+        bool charging = weapon != null && weapon.isActiveAndEnabled && weapon.IsHolding;
         heldTimer = charging ? heldTimer + Time.deltaTime : 0f;
 
         if (!charging || heldTimer < startDelay)
@@ -52,15 +46,7 @@ public class WeaponAimLaser : MonoBehaviour
         }
 
         WeaponData d = weapon.Data;
-        Vector2 muzzle = limbs != null
-            ? limbs.MuzzleWorldPosition(weapon.IsRightArm, ArmPose.Aim)
-            : aim.MuzzlePosition;
-
-        // ทิศเดียวกับตอนยิงจริงใน Weapon.Fire
-        Vector2 to = aim.AimPoint - muzzle;
-        Vector2 dir = to.sqrMagnitude > 0.0001f ? to.normalized : aim.AimDirection;
-        if (assist != null && assist.TryGetAimDirection(muzzle, d.bulletSpeed, d.bulletLifetime, out Vector2 assisted))
-            dir = assisted;
+        weapon.GetShotRay(out Vector2 muzzle, out Vector2 dir);   // ทิศเดียวกับตอนยิงจริงเสมอ
 
         float range = maxLength > 0f ? maxLength : d.bulletSpeed * d.bulletLifetime;
         float len = range;
@@ -76,13 +62,12 @@ public class WeaponAimLaser : MonoBehaviour
         line.SetPosition(0, muzzle);
         line.SetPosition(1, muzzle + dir * len);
 
-        float a = Mathf.Lerp(minAlpha, 1f, weapon.ChargeRatio);
+        float a = Mathf.Lerp(minAlpha, 1f, weapon.HoldRatio);
         line.startColor = new Color(1f, 1f, 1f, a);
         line.endColor = new Color(1f, 1f, 1f, a * endFade);
 
         // ลำดับเดียวกับก้อนพลังงานปลายกระบอก แต่ใต้ลงหนึ่งขั้น
-        bool front = limbs == null || limbs.IsArmVisibleInFront(weapon.IsRightArm);
-        line.sortingOrder = weapon.TorsoSortingOrder + (front ? 11 : -11) - 1;
+        line.sortingOrder = weapon.MuzzleSortingOrder - 1;   // ใต้ก้อนพลังงานปลายกระบอกหนึ่งขั้น
 
         line.enabled = true;
     }

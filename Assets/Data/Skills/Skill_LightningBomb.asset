@@ -15,7 +15,8 @@ MonoBehaviour:
   id: lightning_bomb
   displayName: Lightning Bomb
   icon: {fileID: 0}
-  cooldown: 13
+  description: 
+  cooldown: 18
   magazineSize: 1
   ammoResource: {fileID: 11400000, guid: f89a91f48aed6284f9f0dfd21811bc72, type: 2}
   bombPrefab: {fileID: 7521147828523519654, guid: af06b38756652854788a458ba1441ccd, type: 3}
@@ -50,7 +51,7 @@ MonoBehaviour:
   minSpeed: 0.5
   explodeOnContact: 1
   blastRadius: 3
-  damage: 15
+  damage: 10
   stun: {fileID: 11400000, guid: d7f5bbb607c383b4294e2b41e70534d7, type: 2}
   stunDuration: 3
   shieldOff: {fileID: 11400000, guid: 2ee5d63b3deb0244a81d1ec9a51515b2, type: 2}

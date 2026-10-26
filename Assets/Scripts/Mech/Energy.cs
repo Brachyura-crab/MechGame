@@ -7,8 +7,6 @@ public class Energy : MonoBehaviour
     [SerializeField] float regenDelay = 1f; // หน่วงหลังใช้ก่อนเริ่มฟื้น (วินาที)
 
     MechStats mech;
-    [SerializeField] ModuleData module;
-    ModuleSystem modules;
     float lastMax;
     float lastUseTime = -999f;
 
@@ -22,7 +20,6 @@ public class Energy : MonoBehaviour
         mech = GetComponent<MechStats>();
         lastMax = Max;
         Current = lastMax;
-        modules = GetComponent<ModuleSystem>();
     }
 
     void Update()
@@ -35,10 +32,11 @@ public class Energy : MonoBehaviour
             Changed?.Invoke(Current, max);
         }
 
-        float eff = modules != null ? modules.Efficiency(module) : 1f;
-        if (eff > 0f && Current < max && Time.time - lastUseTime >= regenDelay)
+        // โมดูลพลังงานเสียจะลด EnergyRegen ผ่าน modifier อยู่แล้ว (0 = ไม่ฟื้น)
+        float regen = mech.Stats.Get(StatId.EnergyRegen);
+        if (regen > 0f && Current < max && Time.time - lastUseTime >= regenDelay)
         {
-            Current = Mathf.Min(max, Current + mech.Stats.Get(StatId.EnergyRegen) * eff * Time.deltaTime);
+            Current = Mathf.Min(max, Current + regen * Time.deltaTime);
             Changed?.Invoke(Current, max);
         }
     }

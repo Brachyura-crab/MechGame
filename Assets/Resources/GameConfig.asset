@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4595381311a694caf218b4d0ef860e, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: Assembly-CSharp::GameConfig
+  mechs: {fileID: 11400000, guid: 6f1b72eef6d2f20419bd269d0716bfd9, type: 2}
+  missions: {fileID: 11400000, guid: be4c6ff2a72cbd840becae9ab42a5302, type: 2}
+  upgrades: {fileID: 11400000, guid: ea1caccd6519f444f8926a9c88c503ab, type: 2}

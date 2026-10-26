@@ -21,7 +21,6 @@ public class LightningBomb : MonoBehaviour
     ContactFilter2D filter;
 
     static readonly RaycastHit2D[] hitBuffer = new RaycastHit2D[8];
-    static readonly Collider2D[] overlapBuffer = new Collider2D[128];
     static readonly List<Health> hitList = new List<Health>();
 
     void Awake()
@@ -84,15 +83,12 @@ public class LightningBomb : MonoBehaviour
         if (exploded) return;
         exploded = true;
 
-        int n = Physics2D.OverlapCircle(point, blastRadius, filter, overlapBuffer);
-        hitList.Clear();
+        AreaDamage.Collect(point, blastRadius, filter, hitList);
         GameObject src = owner != null ? owner.gameObject : null;
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < hitList.Count; i++)
         {
-            Health h = overlapBuffer[i].GetComponentInParent<Health>();
-            if (h == null || h.IsDead || hitList.Contains(h)) continue;
-            hitList.Add(h);
+            Health h = hitList[i];
 
             // ติดสถานะก่อน เพื่อให้ดาเมจของระเบิดเองทะลุโล่เข้า HP
             StatusController sc = h.GetComponent<StatusController>();
@@ -110,12 +106,7 @@ public class LightningBomb : MonoBehaviour
             }, owner, h);
         }
 
-        if (explosionPrefab != null)
-        {
-            GameObject fx = Instantiate(explosionPrefab, point, Quaternion.identity);
-            fx.transform.localScale = Vector3.one * blastRadius * 2f * explosionVisualScale;
-            Destroy(fx, explosionLifetime);
-        }
+        AreaDamage.SpawnBlastFx(explosionPrefab, point, blastRadius, explosionVisualScale, explosionLifetime);
 
         // แยก trail ออกให้จางเอง (ถ้าตัวระเบิดมี trail) ไม่หายวับพร้อมตัวระเบิด
         TrailRenderer trail = GetComponentInChildren<TrailRenderer>();
@@ -126,7 +117,7 @@ public class LightningBomb : MonoBehaviour
             Destroy(trail.gameObject, trail.time + 0.1f);
         }
 
-        ExplosionScreenFx.Trigger(point, blastRadius);   // กล้องสั่น + จอมืดตามระยะ (ลบบรรทัดนี้ถ้าไม่ต้องการ)
+        ExplosionScreenFx.Trigger(point, blastRadius, 1f, false);   // จอมืดตามระยะ ไม่สั่น
 
         Destroy(gameObject);
     }

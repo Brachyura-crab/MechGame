@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58766b85f451968479bd4309adecf025, type: 3}
+  m_Name: Test_Leader
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyV2.LinkProfile
+  connectRadius: 6
+  commandRadius: 30
+  recallRatio: 0.9
+  releaseRatio: 0.7
+  desiredFollowers: 20
+  maxFollowers: 40
+  donateAll: 0
+  wakeTime: 1
+  sleepTime: 1.5
+  thinkInterval: 0.2
+  orphanLifetime: 20
+  orphanDespawnDistance: 40
+  offscreenMargin: 0.15

@@ -45,23 +45,39 @@ public class Bullet : MonoBehaviour
 
     public void Fire(Vector2 pos, Vector2 dir, WeaponData w, MechStats owner)
     {
+        Fire(pos, dir, new BulletParams
+        {
+            damage = w.damage,
+            critChance = w.critChance,
+            speed = w.bulletSpeed,
+            lifetime = w.bulletLifetime,
+            type = w.damageType,
+            maxHits = w.maxHits,
+            impactEffect = w.impactEffect,
+            impactLifetime = w.impactLifetime,
+            impactSortingOrder = w.impactSortingOrder
+        }, owner);
+    }
+
+    public void Fire(Vector2 pos, Vector2 dir, BulletParams p, MechStats owner)
+    {
         transform.position = pos;
         transform.right = dir;
-        velocity = dir * w.bulletSpeed;
-        lifeLeft = w.bulletLifetime;
-        damage = w.damage;
-        critChance = w.critChance;
-        type = w.damageType;
+        velocity = dir * p.speed;
+        lifeLeft = p.lifetime;
+        damage = p.damage;
+        critChance = p.critChance;
+        type = p.type;
         this.owner = owner;
         traveled = 0f;
         hitStop = false;
         length = 0.001f;
         SetLength(length);
         alreadyHit.Clear();
-        hitsLeft = w.maxHits < 0 ? int.MaxValue : w.maxHits;
-        impactEffect = w.impactEffect;
-        impactLifetime = w.impactLifetime;
-        impactOrder = w.impactSortingOrder;
+        hitsLeft = p.maxHits < 0 ? int.MaxValue : p.maxHits;
+        impactEffect = p.impactEffect;
+        impactLifetime = p.impactLifetime;
+        impactOrder = p.impactSortingOrder;
     }
 
     void StopAt(RaycastHit2D hit)

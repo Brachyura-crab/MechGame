@@ -15,4 +15,4 @@ MonoBehaviour:
   id: Res_MagnumAmmo
   displayName: Magnum Ammo
   icon: {fileID: 0}
-  maxAmount: 999
+  maxAmount: 333

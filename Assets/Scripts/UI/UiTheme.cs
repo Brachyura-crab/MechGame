@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ThemeRole { Background, Surface, InkDim, InkLow, InkMid, InkBright, OnInk }
+public enum ThemeRole { Background, Surface, InkDim, InkLow, InkMid, InkBright, OnInk, Warn, Danger }
 
 [CreateAssetMenu(menuName = "Mech/UiTheme")]
 public class UiTheme : ScriptableObject
@@ -12,6 +12,8 @@ public class UiTheme : ScriptableObject
     public Color inkMid     = new Color32(0x2F, 0xD4, 0x74, 255);   // ตัวหนังสือทั่วไป เส้นกรอบ
     public Color inkBright  = new Color32(0x6B, 0xFF, 0xA6, 255);   // ค่าที่ต้องดู
     public Color onInk      = new Color32(0x02, 0x08, 0x05, 255);   // ตัวอักษรบนพื้นสีสว่าง
+    public Color warn       = new Color32(0xFF, 0xB0, 0x00, 255);   // เตือน (ค่าต่ำ, กำลังชาร์จ)
+    public Color danger     = new Color32(0xFF, 0x4D, 0x3D, 255);   // วิกฤต (ใกล้หมด, ออกนอกพื้นที่)
 
     public Color Get(ThemeRole r)
     {
@@ -23,6 +25,8 @@ public class UiTheme : ScriptableObject
             case ThemeRole.InkLow:     return inkLow;
             case ThemeRole.InkMid:     return inkMid;
             case ThemeRole.InkBright:  return inkBright;
+            case ThemeRole.Warn:       return warn;
+            case ThemeRole.Danger:     return danger;
             default:                   return onInk;
         }
     }

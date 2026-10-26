@@ -17,6 +17,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   hitWeight: 1
   bodyPart: {fileID: 11400000, guid: 8ea6a00529b9c454c9e34941f3abfe2c, type: 2}
+  scalesStat: 1
+  stat: 20
   efficiency:
   - 1
   - 0.6

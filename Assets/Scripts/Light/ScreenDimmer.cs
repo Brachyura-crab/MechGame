@@ -26,7 +26,7 @@ public class ScreenDimmer : MonoBehaviour
 
         if (globalLight == null)
         {
-            foreach (Light2D l in FindObjectsByType<Light2D>(FindObjectsSortMode.None))
+            foreach (Light2D l in FindObjectsByType<Light2D>())
             {
                 if (l.lightType == Light2D.LightType.Global) { globalLight = l; break; }
             }

@@ -22,7 +22,7 @@ public class UiThemeSource : MonoBehaviour
         get
         {
             if (Instance != null) return Instance;
-            return Application.isPlaying ? null : FindFirstObjectByType<UiThemeSource>();   // ไว้พรีวิวใน Editor
+            return Application.isPlaying ? null : FindAnyObjectByType<UiThemeSource>();   // ไว้พรีวิวใน Editor
         }
     }
 
@@ -35,6 +35,13 @@ public class UiThemeSource : MonoBehaviour
     public static Color Caution  => Current != null ? Current.caution  : Color.yellow;
     public static Color Alert    => Current != null ? Current.alert    : Color.yellow;
     public static Color Critical => Current != null ? Current.critical : Color.red;
+
+    public static Color LevelColor(float ratio)
+    {
+        if (ratio < 0.2f) return Role(ThemeRole.Danger);
+        if (ratio < 0.4f) return Role(ThemeRole.Warn);
+        return Role(ThemeRole.InkBright);
+    }
 
     public static Color TierColor(ModuleDamage t)
     {

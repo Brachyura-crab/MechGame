@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce22d0916fe4a9d4cb5e5748b54448a5, type: 3}
+  m_Name: Mission Node 2
+  m_EditorClassIdentifier: Assembly-CSharp::MissionNode
+  id: m02
+  displayName: RELAY STATION
+  brief: 
+  sceneName: Game
+  mapPos: {x: 0.6, y: 0.4}
+  connectsTo: []
+  requires: {fileID: 11400000, guid: ba34327d777094b4e91152e3fabaeb7c, type: 2}
+  mission: {fileID: 11400000, guid: 9ef9a4873abe50345824db3bd7c8b6de, type: 2}
+  gatesToClose: 3
+  timeLimit: 600
+  threat: 2
+  basePoints: 20
+  scorePerBonusPoint: 500
+  maxBonusPoints: 30

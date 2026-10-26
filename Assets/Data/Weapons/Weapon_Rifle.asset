@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   id: rifle
   displayName: Rifle
+  icon: {fileID: 21300000, guid: 8caf30270380e6a479a7cd5e88b296cd, type: 3}
+  description: 
   damage: 10
-  critChance: 0.1
+  critChance: 0.3
   shotsPerSecond: 6
   bulletSpeed: 100
-  bulletLifetime: 0.8
+  bulletLifetime: 1
   spreadDegrees: 0.2
   damageType: 0
   fireMode: 0
-  maxHits: 1
+  maxHits: 2
   recoil: 0
   muzzleEffect: {fileID: 4987492798657678986, guid: 02766ec2e3ec7d64dae2841642382c9a, type: 3}
   muzzleEffectLifetime: 0.15
-  screenDim: 0.15
+  screenDim: 0.5
   cameraKick: 0
   armKick: 0.1
   casingPrefab: {fileID: 1582302728158512387, guid: 47bb4bae5e0b1ef43a4e1a5af8198dbd, type: 3}
@@ -36,11 +38,11 @@ MonoBehaviour:
   impactEffect: {fileID: 3007640639623505828, guid: 4df71bc9af795c142b9940d455403c7b, type: 3}
   impactLifetime: 0.6
   impactSortingOrder: 20
-  chargeTime: 0.8
+  holdTime: 0.8
   magazineSize: 30
-  reloadTime: 2
+  reloadTime: 2.5
   autoReloadIdleDelay: 1
   ammoResource: {fileID: 11400000, guid: d95e2e7f794587f4fb6d70753e8337ad, type: 2}
   bulletPrefab: {fileID: 4679649336674627456, guid: dd6d99355d9e1684eb8757d2aec093bb, type: 3}
-  cameraAimLead: 0.3
-  cameraMaxOffset: 4
+  cameraAimLead: 0.4
+  cameraMaxOffset: 10

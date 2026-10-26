@@ -91,7 +91,7 @@ public class StatusController : MonoBehaviour
         Changed?.Invoke();
     }
 
-    public void Knockback(Vector2 direction, float speed)
+    public void Knockback(Vector2 direction, float speed, float lockTime = 0.3f)
     {
         if (rb == null || direction.sqrMagnitude < 0.0001f) return;
 
@@ -100,7 +100,7 @@ public class StatusController : MonoBehaviour
         if (s <= 0f) return;
 
         rb.linearVelocity += direction.normalized * s;
-        knockbackEndTime = Time.time + 0.3f;
+        knockbackEndTime = Mathf.Max(knockbackEndTime, Time.time + lockTime);   // ไม่ทำให้ล็อกที่ค้างอยู่สั้นลง
     }
 
     public void ClearAll()
@@ -116,6 +116,22 @@ public class StatusController : MonoBehaviour
         for (int i = active.Count - 1; i >= 0; i--)
             if (active[i].data == data) { RemoveAt(i); removed = true; }
         if (removed) { RecalculateFlags(); Changed?.Invoke(); }
+    }
+
+    public bool Has(StatusData data)
+    {
+        for (int i = 0; i < active.Count; i++)
+            if (active[i].data == data) return true;
+        return false;
+    }
+
+    // เวลาที่เหลือของสถานะนี้ (ชั้นที่นานที่สุด) 0 = ไม่ได้ติดอยู่
+    public float RemainingOf(StatusData data)
+    {
+        float best = 0f;
+        for (int i = 0; i < active.Count; i++)
+            if (active[i].data == data && active[i].remaining > best) best = active[i].remaining;
+        return best;
     }
 
     void RemoveAt(int i)

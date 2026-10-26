@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07eecff77de8c614db8f4c3ee2faa16b, type: 3}
+  m_Name: LeaderData_Test
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyV2.LeaderData
+  sightRadius: 30
+  guardRadius: 10
+  fleeDistance: 4
+  fleeBuffer: 3
+  maxFleeFromStation: 12
+  stationPull: 0.5
+  returnDelay: 1.5
+  blockTriggerDistance: 20
+  guardAggroRange: 20
+  guardAggroBuffer: 4
+  guardAttackFraction: 0.5
+  guardFlockRadius: 10
+  escortDistance: 20
+  escortReleaseRatio: 0.6
+  leashDistance: 50
+  leashReleaseRatio: 0.6
+  keepDistance: 3
+  retreatBuffer: 2
+  standoffDistance: 5
+  engageRange: 30
+  minAttackFlock: 3
+  retreatSpeedRatio: 1
+  cruiseSpeedRatio: 0.5
+  rushSpeedRatio: 1.3
+  rushStart: 5
+  rushEnd: 4
+  arriveRadius: 1.5
+  slowZone: 3
+  swayAmp: 0.5
+  swayFreq: 1.5
+  guardWanderRadius: 5
+  engageWanderRadius: 1.5
+  wanderRepathMin: 5
+  wanderRepathMax: 10
+  leaderSpacing: 6
+  leaderSeparationSpeed: 3
+  orderInterval: 0.5
+  transferInterval: 1
+  guardMinFlock: 6

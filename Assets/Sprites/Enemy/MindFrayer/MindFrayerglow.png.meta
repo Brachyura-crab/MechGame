@@ -1,0 +1,574 @@
+fileFormatVersion: 2
+guid: 23ac58c6e6cb65740ba915c4714923eb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7762985222974404094
+    second: MindFrayerglow 1_0
+  - first:
+      213: 3108663015202246388
+    second: MindFrayerglow 1_1
+  - first:
+      213: -9196906949567319393
+    second: MindFrayerglow 1_2
+  - first:
+      213: 505344603779503406
+    second: MindFrayerglow 1_3
+  - first:
+      213: -1121469528496175278
+    second: MindFrayerglow 1_4
+  - first:
+      213: -7476837554491638851
+    second: MindFrayerglow 1_5
+  - first:
+      213: 6911667578418445075
+    second: MindFrayerglow 1_6
+  - first:
+      213: 352107781822570055
+    second: MindFrayerglow 1_7
+  - first:
+      213: 7840953040402464355
+    second: MindFrayerglow 1_8
+  - first:
+      213: -4878612502534092775
+    second: MindFrayerglow 1_9
+  - first:
+      213: -4214033667115754632
+    second: MindFrayerglow 1_10
+  - first:
+      213: 8609866722329022657
+    second: MindFrayerglow 1_11
+  - first:
+      213: 1805913754769363436
+    second: MindFrayerglow 1_12
+  - first:
+      213: -6585098758107802732
+    second: MindFrayerglow 1_13
+  - first:
+      213: 5983479212576129482
+    second: MindFrayerglow 1_14
+  - first:
+      213: -9151238255496928966
+    second: MindFrayerglow 1_15
+  - first:
+      213: 8439328337533183287
+    second: MindFrayerglow 1_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.35, y: 0.3}
+  spritePixelsToUnits: 170
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MindFrayerglow 1_0
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 381
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a010cd116544490800000000000000
+      internalID: -7762985222974404094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 360
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe468bba80342b20800000000000000
+      internalID: 3108663015202246388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 322
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92f7be4bd50e5080800000000000000
+      internalID: -9196906949567319393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_3
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 314
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e25107d5d38530700800000000000000
+      internalID: 505344603779503406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_4
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 268
+        width: 120
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2578f87d76dbf60f0800000000000000
+      internalID: -1121469528496175278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_5
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 303
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbbb931bbdfec3890800000000000000
+      internalID: -7476837554491638851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_6
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 263
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b37310b0d2bef50800000000000000
+      internalID: 6911667578418445075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_7
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 254
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e5f2a7920f2e400800000000000000
+      internalID: 352107781822570055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_8
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 251
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e35b14f39a0dc60800000000000000
+      internalID: 7840953040402464355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_9
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 226
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9180da5e6cfab4cb0800000000000000
+      internalID: -4878612502534092775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_10
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 229
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b5708e4beb485c0800000000000000
+      internalID: -4214033667115754632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_11
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 236
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0d0ebba246c7770800000000000000
+      internalID: 8609866722329022657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_12
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 195
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce11508edf4ef0910800000000000000
+      internalID: 1805913754769363436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_13
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 195
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4935e10a1970d94a0800000000000000
+      internalID: -6585098758107802732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_14
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 135
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac1c88a54a6990350800000000000000
+      internalID: 5983479212576129482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_15
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 136
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31e32eba45400180800000000000000
+      internalID: -9151238255496928966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MindFrayerglow 1_16
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 105
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735ad85d8648e1570800000000000000
+      internalID: 8439328337533183287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MindFrayerglow 1_0: -7762985222974404094
+      MindFrayerglow 1_1: 3108663015202246388
+      MindFrayerglow 1_10: -4214033667115754632
+      MindFrayerglow 1_11: 8609866722329022657
+      MindFrayerglow 1_12: 1805913754769363436
+      MindFrayerglow 1_13: -6585098758107802732
+      MindFrayerglow 1_14: 5983479212576129482
+      MindFrayerglow 1_15: -9151238255496928966
+      MindFrayerglow 1_16: 8439328337533183287
+      MindFrayerglow 1_2: -9196906949567319393
+      MindFrayerglow 1_3: 505344603779503406
+      MindFrayerglow 1_4: -1121469528496175278
+      MindFrayerglow 1_5: -7476837554491638851
+      MindFrayerglow 1_6: 6911667578418445075
+      MindFrayerglow 1_7: 352107781822570055
+      MindFrayerglow 1_8: 7840953040402464355
+      MindFrayerglow 1_9: -4878612502534092775
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

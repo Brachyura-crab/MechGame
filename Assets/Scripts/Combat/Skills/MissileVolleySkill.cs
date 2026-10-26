@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(menuName = "Mech/Skills/Missile Volley")]
 public class MissileVolleySkill : SkillData
@@ -33,6 +34,16 @@ public class MissileVolleySkill : SkillData
     public StatusData stun;
     public float stunDuration = 1f;
     public float knockbackSpeed = 10f;
+
+    public override void GetInfo(MechStats mech, List<InfoLine> lines)
+    {
+        base.GetInfo(mech, lines);
+        lines.Add(new InfoLine("DAMAGE EACH", (damage * mech.Stats.Get(StatId.DamageMultiplier)).ToString("0.#")));
+        lines.Add(new InfoLine("BLAST RADIUS", blastRadius.ToString("0.#")));
+        lines.Add(new InfoLine("SPEED", speed.ToString("0.#")));
+        lines.Add(new InfoLine("STUN", stunDuration.ToString("0.#") + "s"));
+        lines.Add(new InfoLine("KNOCKBACK", knockbackSpeed.ToString("0.#")));
+    }
 
     public override void Activate(MechSkills user, int rounds)
     {

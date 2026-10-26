@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   id: plasma_magnum
   displayName: Plasma Magnum
+  icon: {fileID: 21300000, guid: be2b81e26ed9cc04e85544af31c8b402, type: 3}
+  description: 
   damage: 50
-  critChance: 0.2
-  shotsPerSecond: 0.5
+  critChance: 0.5
+  shotsPerSecond: 0.7
   bulletSpeed: 150
   bulletLifetime: 0.5
   spreadDegrees: 0
   damageType: 0
   fireMode: 1
-  maxHits: -1
+  maxHits: 20
   recoil: 15
   muzzleEffect: {fileID: 0}
   muzzleEffectLifetime: 0.15
-  screenDim: 0.8
+  screenDim: 1
   cameraKick: 2
   armKick: 0.75
   casingPrefab: {fileID: 0}
@@ -36,11 +38,11 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   impactLifetime: 0.6
   impactSortingOrder: 20
-  chargeTime: 0.15
+  holdTime: 0.15
   magazineSize: 5
-  reloadTime: 5
+  reloadTime: 3.5
   autoReloadIdleDelay: 1
   ammoResource: {fileID: 11400000, guid: 01ada49a91af6d84bb01899ac205a5a7, type: 2}
   bulletPrefab: {fileID: 4679649336674627456, guid: 0e9768d1bb1ca6844ba1e792cee423cd, type: 3}
-  cameraAimLead: 0.5
-  cameraMaxOffset: 10
+  cameraAimLead: 0.6
+  cameraMaxOffset: 15

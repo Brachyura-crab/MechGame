@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(menuName = "Mech/Skills/Lightning Bomb")]
 public class LightningBombSkill : SkillData
@@ -26,6 +27,16 @@ public class LightningBombSkill : SkillData
     public float stunDuration = 3f;
     public StatusData shieldOff;
     public float shieldOffDuration = 5f;
+
+    public override void GetInfo(MechStats mech, List<InfoLine> lines)
+    {
+        base.GetInfo(mech, lines);
+        lines.Add(new InfoLine("DAMAGE", (damage * mech.Stats.Get(StatId.DamageMultiplier)).ToString("0.#")));
+        lines.Add(new InfoLine("BLAST RADIUS", blastRadius.ToString("0.#")));
+        lines.Add(new InfoLine("RANGE", maxRange.ToString("0.#")));
+        lines.Add(new InfoLine("STUN", stunDuration.ToString("0.#") + "s"));
+        lines.Add(new InfoLine("SHIELD OFF", shieldOffDuration.ToString("0.#") + "s"));
+    }
 
     public override void Activate(MechSkills user, int rounds)
     {

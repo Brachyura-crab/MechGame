@@ -52,7 +52,7 @@ MonoBehaviour:
   m_SelectionSources:
     rid: 1029431062711500884
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.6396227, g: 1, b: 0.94592625, a: 1}
+  m_Color: {r: 0.8184011, g: 0.6392157, b: 1, a: 1}
   m_Intensity: 3
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -118,6 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3663213357239093949}
   - component: {fileID: 6094262318489510672}
+  - component: {fileID: 1004942851651438179}
   m_Layer: 0
   m_Name: Explosion_Lightning
   m_TagString: Untagged
@@ -134,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 8425631150520849845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9164, y: 0.9903, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -190,8 +191,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 70
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.0980392, g: 0.67478186, b: 0.7607843, a: 0.5921569}
+  m_Sprite: {fileID: 21300000, guid: 1feff482123cade4eb515d04ffa465fd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -201,3 +202,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!95 &1004942851651438179
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425631150520849845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3049c8a007518a4089f06c7a8b496f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

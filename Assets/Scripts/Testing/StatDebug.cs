@@ -33,6 +33,7 @@ public class StatDebug : MonoBehaviour
 
     void Update()
     {
+        if (!DebugGate.Enabled) return;
         var kb = Keyboard.current;
         if (kb == null) return;
 
